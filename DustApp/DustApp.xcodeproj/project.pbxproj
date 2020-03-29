@@ -13,6 +13,7 @@
 		305CBFCD24305C3400C62E81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 305CBFCC24305C3400C62E81 /* Assets.xcassets */; };
 		305CBFD024305C3400C62E81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305CBFCE24305C3400C62E81 /* LaunchScreen.storyboard */; };
 		305CBFDB24306FAF00C62E81 /* DustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CBFDA24306FAF00C62E81 /* DustViewController.swift */; };
+		305CBFDD2430841900C62E81 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CBFDC2430841900C62E81 /* ForecastViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		305CBFCF24305C3400C62E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		305CBFD124305C3400C62E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		305CBFDA24306FAF00C62E81 /* DustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustViewController.swift; sourceTree = "<group>"; };
+		305CBFDC2430841900C62E81 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				305CBFDA24306FAF00C62E81 /* DustViewController.swift */,
+				305CBFDC2430841900C62E81 /* ForecastViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				305CBFC424305C3000C62E81 /* AppDelegate.swift in Sources */,
+				305CBFDD2430841900C62E81 /* ForecastViewController.swift in Sources */,
 				305CBFDB24306FAF00C62E81 /* DustViewController.swift in Sources */,
 				305CBFC624305C3000C62E81 /* SceneDelegate.swift in Sources */,
 			);
