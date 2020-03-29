@@ -17,7 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ueI-6R-7B7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="예보" selectedImage="clock.fill" id="Wiu-xl-WeY"/>
+                    <tabBarItem key="tabBarItem" title="예보" image="clock.fill" selectedImage="clock.fill" id="Wiu-xl-WeY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMP-s9-Q2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +130,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="미세먼지" selectedImage="smoke.fill" id="2OA-3d-Wxe"/>
+                    <tabBarItem key="tabBarItem" title="미세먼지" image="smoke.fill" selectedImage="smoke.fill" id="2OA-3d-Wxe"/>
                     <connections>
                         <outlet property="gradientView" destination="JAx-CW-dld" id="eF5-dx-TaI"/>
                         <outlet property="measurePlaceLabel" destination="VP1-kH-2bm" id="mLX-Jx-xmd"/>
