@@ -1,9 +1,12 @@
 package com.example.dust.controller;
 
 import com.example.dust.bean.ApiResponse;
+import com.example.dust.bean.Forecast;
 import com.example.dust.message.SuccessMessages;
 
 import com.example.dust.testdata.TestData;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +59,10 @@ public class ForecastController {
     while ((line = bufferedReader.readLine()) != null) {
       result.append(line);
     }
-    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, result.toString()), HttpStatus.OK);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    Forecast forecast = objectMapper.readValue(result.toString(), Forecast.class);
+    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, forecast.getList()), HttpStatus.OK);
   }
 }
