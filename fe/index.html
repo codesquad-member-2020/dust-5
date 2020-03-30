@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>dust - </title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/dust.css">
+</head>
+
+<body>
+    <div class="dust-app-wrap">
+        <header class="dust-app-header">
+            <ul class="dust-menu-nav">
+                <li class="dust-tep">미세먼지</li>
+                <li class="dust-report-tep">예보</li>
+            </ul>
+        </header>
+
+        <div class="dust-app-container">
+            <div class="dust-content-wrap active">
+                <div class="dust-state-wrap">
+                    <h2 class="dust-title">미세먼지 앱</h2>
+                    <div class="dust-state-icon">🤔</div>
+                    <div class="dust-state-text">데이터를 불러오는 중입니다...</div>
+                    <div class="dust-state"></div>
+                    <div class="dust-locate"></div>
+                </div>
+
+                <div class="dust-timeline-graph-wrap">
+                    <ul class="dust-timeline-graph"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js" type="module"></script>
+</body>
+
+</html>
