@@ -9,7 +9,6 @@
 import UIKit
 
 class DustViewController: UIViewController {
-    
     @IBOutlet var gradientView: UIView!
     @IBOutlet var statusImage: UIImageView!
     @IBOutlet var statusLabel: UILabel!
@@ -17,7 +16,9 @@ class DustViewController: UIViewController {
     @IBOutlet var measureTimeLabel: UILabel!
     @IBOutlet var measurePlaceLabel: UILabel!
     
+    //서버에서 받아올 데이터 = [측정값, 측정시각, 측정소(현재 위치 좌표 넘겨야함) ]
     var measuredValue:Int = 67
+    @IBOutlet var tableView: TimelineTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
