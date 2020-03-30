@@ -26,4 +26,32 @@ enum DustGrade {
             return 150...999
         }
     }
+    
+    init(_ measuredValue: Int) {
+        switch measuredValue {
+        case DustGrade.good.range:
+            self = .good
+        case DustGrade.normal.range:
+            self = .normal
+        case DustGrade.bad.range:
+            self = .bad
+        case DustGrade.worst.range:
+            self = .worst
+        default:
+            self = .normal
+        }
+    }
+    
+    func gradeDustState(measuredValue: Int) -> DustState {
+        switch self {
+        case .good:
+            return GoodState(measureValue: measuredValue)
+        case .normal:
+            return NormalState(measureValue: measuredValue)
+        case .bad:
+            return BadState(measureValue: measuredValue)
+        case .worst:
+            return WorstState(measureValue: measuredValue)
+        }
+    }
 }

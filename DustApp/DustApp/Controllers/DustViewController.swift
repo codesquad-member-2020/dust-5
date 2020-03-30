@@ -17,24 +17,26 @@ class DustViewController: UIViewController {
     @IBOutlet var measureTimeLabel: UILabel!
     @IBOutlet var measurePlaceLabel: UILabel!
     
+    var measuredValue:Int = 88
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeGradientView()
+        measureDustGrade(measuredValue: measuredValue)
     }
     
-    func makeGradientView() {
+    func makeGradientView(gradientColor: [Any]) {
         let gradient = CAGradientLayer()
         
         gradient.frame = view.bounds
         gradient.endPoint = CGPoint(x: 0.5, y: 1)
         
-        gradient.colors = [
-            UIColor(red: 0, green: 0.5, blue: 0.9, alpha: 1).cgColor,
-            UIColor(red: 0, green: 0.5, blue: 0.9, alpha: 0.2).cgColor,
-            UIColor(red: 0, green: 0.1, blue: 0.1, alpha: 0.1).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor.white
-        ]
+        gradient.colors = gradientColor
         gradientView.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    func measureDustGrade(measuredValue: Int) {
+        let grade = DustGrade(measuredValue)
+        let state = grade.gradeDustState(measuredValue: measuredValue)
+        makeGradientView(gradientColor: state.gradientColor)
     }
 }
