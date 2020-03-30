@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 struct GoodState: DustState {
     var measureValue: Int
     var state: String = "좋음"

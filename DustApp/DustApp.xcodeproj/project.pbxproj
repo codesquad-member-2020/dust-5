@@ -19,6 +19,7 @@
 		30B0AB562431C8C300CE9727 /* NormalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB552431C8C300CE9727 /* NormalState.swift */; };
 		30B0AB582431C96600CE9727 /* BadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB572431C96500CE9727 /* BadState.swift */; };
 		30B0AB5A2431C9AC00CE9727 /* WorstState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB592431C9AC00CE9727 /* WorstState.swift */; };
+		30B0AB5E2431CE8B00CE9727 /* DustGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		30B0AB552431C8C300CE9727 /* NormalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalState.swift; sourceTree = "<group>"; };
 		30B0AB572431C96500CE9727 /* BadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadState.swift; sourceTree = "<group>"; };
 		30B0AB592431C9AC00CE9727 /* WorstState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorstState.swift; sourceTree = "<group>"; };
+		30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustGrade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				30B0AB552431C8C300CE9727 /* NormalState.swift */,
 				30B0AB572431C96500CE9727 /* BadState.swift */,
 				30B0AB592431C9AC00CE9727 /* WorstState.swift */,
+				30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				30B0AB542431C79100CE9727 /* GoodState.swift in Sources */,
 				305CBFDD2430841900C62E81 /* ForecastViewController.swift in Sources */,
 				30B0AB522431C71900CE9727 /* DustState.swift in Sources */,
+				30B0AB5E2431CE8B00CE9727 /* DustGrade.swift in Sources */,
 				305CBFDB24306FAF00C62E81 /* DustViewController.swift in Sources */,
 				30B0AB5A2431C9AC00CE9727 /* WorstState.swift in Sources */,
 				30B0AB562431C8C300CE9727 /* NormalState.swift in Sources */,
