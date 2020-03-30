@@ -17,7 +17,7 @@ class DustViewController: UIViewController {
     @IBOutlet var measureTimeLabel: UILabel!
     @IBOutlet var measurePlaceLabel: UILabel!
     
-    var measuredValue:Int = 30
+    var measuredValue:Int = 155
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,21 @@ class DustViewController: UIViewController {
         statusImage.image = stateEmoji
     }
     
+    func inputStatusLabel(state: String) {
+        statusLabel.text = state
+    }
+    
+    func inputStatusValueLabel(measuredValue: Int) {
+        statusValueLabel.text = "\(measuredValue)"
+    }
+    
     func measureDustGrade(measuredValue: Int) {
         let grade = DustGrade(measuredValue)
         let state = grade.gradeDustState(measuredValue: measuredValue)
         makeGradientView(gradientColor: state.gradientColor)
         inputStatusImage(stateEmoji: state.stateEmoji)
+        inputStatusLabel(state: state.state)
+        inputStatusValueLabel(measuredValue: measuredValue)
     }
+    
 }
