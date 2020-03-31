@@ -1,5 +1,5 @@
 //
-//  RequestManager.swift
+//  URLDataTask.swift
 //  DustApp
 //
 //  Created by delma on 2020/03/31.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RequestManager {
+class URLDataTask {
     enum HTTPMethod: String {
            case get = "GET"
            case post = "POST"

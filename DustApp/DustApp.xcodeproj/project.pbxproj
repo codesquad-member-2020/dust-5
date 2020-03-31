@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		301223C624335ADA00BB712C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C524335ADA00BB712C /* LocationManager.swift */; };
-		301223C824335F7800BB712C /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C724335F7800BB712C /* RequestManager.swift */; };
+		301223C824335F7800BB712C /* URLDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C724335F7800BB712C /* URLDataTask.swift */; };
 		301223CA243363A600BB712C /* EncodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C9243363A600BB712C /* EncodeManager.swift */; };
 		301223CC243363D800BB712C /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223CB243363D800BB712C /* Coordinate.swift */; };
 		305CBFC424305C3000C62E81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CBFC324305C3000C62E81 /* AppDelegate.swift */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		301223C524335ADA00BB712C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		301223C724335F7800BB712C /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		301223C724335F7800BB712C /* URLDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDataTask.swift; sourceTree = "<group>"; };
 		301223C9243363A600BB712C /* EncodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeManager.swift; sourceTree = "<group>"; };
 		301223CB243363D800BB712C /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		305CBFC024305C3000C62E81 /* DustApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				301223C524335ADA00BB712C /* LocationManager.swift */,
-				301223C724335F7800BB712C /* RequestManager.swift */,
+				301223C724335F7800BB712C /* URLDataTask.swift */,
 				301223C9243363A600BB712C /* EncodeManager.swift */,
 			);
 			path = Network;
@@ -236,7 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				301223C824335F7800BB712C /* RequestManager.swift in Sources */,
+				301223C824335F7800BB712C /* URLDataTask.swift in Sources */,
 				30B0AB582431C96600CE9727 /* BadState.swift in Sources */,
 				305CBFC424305C3000C62E81 /* AppDelegate.swift in Sources */,
 				30B0AB542431C79100CE9727 /* GoodState.swift in Sources */,
