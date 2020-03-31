@@ -17,8 +17,8 @@ class URLDataTask {
        }
        
     //bool값 리턴이 아닌 data(response 값) 리턴하도록 
-       func request(url: String, methodType: HTTPMethod, body: Data? = nil) -> Bool {
-           guard let url = URL(string: url) else { return false }
+    func request(url: String, methodType: HTTPMethod, body: Data? = nil, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+           guard let url = URL(string: url) else { return  }
            
            var request = URLRequest(url: url)
            request.httpMethod = methodType.rawValue
@@ -41,6 +41,5 @@ class URLDataTask {
            }
            
            task.resume()
-           return true
        }
 }
