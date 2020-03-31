@@ -12,7 +12,7 @@ class DustAppView {
 
     updateDustState(currDustData, stationInfo) {
         this.dustLocateEl.innerHTML = `<b>${stationInfo}</b> 측정소 기준`;
-        this.dustStateEl.innerHTML = `<b>${currDustData.pm10Value}</b> 𝜇g/m³ ${currDustData.dataTime.slice(-DUST_APP_RULE.DATA_TIME_LENGTH)}`;
+        this.dustStateEl.innerHTML = `<b>${currDustData.pm10Value}</b> &micro;g/m³ ${currDustData.dataTime.slice(-DUST_APP_RULE.DATA_TIME_LENGTH)}`;
         this.updateDustStateSwitch(currDustData)
     }
 
