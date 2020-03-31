@@ -1,39 +1,6 @@
-/* common */
-
-.dust-app-wrap {
-    position: relative;
-}
-
-.dust-content-wrap, .dust-report-wrap {
-    display: none;
-}
-
-.dust-content-wrap.active, .dust-report-wrap.active {
-    display: block;
-}
-
-/* menu */
-
-.dust-menu-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    line-height: 70px;
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-}
-
-.dust-menu-nav li {
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-}
-
 /* state */
 
-.dust-state-wrap {
+.dust-app-state-wrap {
     position: fixed;
     top: 70px;
     left: 0;
@@ -42,33 +9,33 @@
     font-size: 25px;
 }
 
-.dust-title {
+.dust-app-title {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.dust-state-icon {
+.dust-app-state-icon {
     font-size: 120px;
     margin-bottom: 25px;
 }
 
-.dust-state-text {
+.dust-app-state-text {
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.dust-state {
+.dust-app-state {
     margin-bottom: 10px;
 }
 
-.dust-locate {
+.dust-app-locate {
     font-size: 16px;
 }
 
 /* graph */
 
-.dust-timeline-graph-wrap {
+.dust-app-timeline-graph-wrap {
     position: fixed;
     top: 350px;
     left: 0;
@@ -79,28 +46,28 @@
     scrollbar-width: none;
 }
 
-.dust-timeline-graph-wrap::-webkit-scrollbar {
+.dust-app-timeline-graph-wrap::-webkit-scrollbar {
     display: none;
 }
 
-.dust-timeline-graph {
+.dust-app-timeline-graph {
     font-size: 20px;
 }
 
-.dust-timeline-graph li {
+.dust-app-timeline-graph li {
     position: relative;
     height: 1em;
     border-bottom: 1px solid #ccc;
     box-sizing: border-box;
 }
 
-.dust-timeline-graph li .dust-graph {
+.dust-app-timeline-graph li .dust-app-graph {
     display: inline-block;
     height: 1em;
     background-color: black;
 }
 
-.dust-timeline-graph li .dust-value {
+.dust-app-timeline-graph li .dust-app-value {
     position: absolute;
     top: 0;
     right: 10px;

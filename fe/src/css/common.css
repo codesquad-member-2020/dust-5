@@ -1,0 +1,32 @@
+/* common */
+
+.dust-wrap {
+    position: relative;
+}
+
+.dust-app-wrap, .dust-forecast-wrap {
+    display: none;
+}
+
+.dust-app-wrap.active, .dust-forecast-wrap.active {
+    display: block;
+}
+
+/* menu */
+
+.dust-menu-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 70px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+.dust-menu-nav li {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}

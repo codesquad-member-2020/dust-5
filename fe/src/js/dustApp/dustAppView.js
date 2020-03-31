@@ -12,32 +12,30 @@ class DustAppView {
     }
 
     render() {
-        getElement('.dust-app-wrap').innerHTML +=
-            `<div class="dust-app-container">
-                <div class="dust-content-wrap active">
-                        <div class="dust-state-wrap">
-                            <h2 class="dust-title">미세먼지 앱</h2>
-                            <div class="dust-state-icon">🤔</div>
-                            <div class="dust-state-text">데이터를 불러오는 중입니다...</div>
-                            <div class="dust-state"></div>
-                            <div class="dust-locate"></div>
-                        </div>
-
-                <div class="dust-timeline-graph-wrap">
-                    <ul class="dust-timeline-graph"></ul>
+        getElement('.dust-wrap').innerHTML +=
+            `<div class="dust-app-wrap active">
+                <div class="dust-app-state-wrap">
+                    <h2 class="dust-app-title">미세먼지 앱</h2>
+                    <div class="dust-app-state-icon">🤔</div>
+                    <div class="dust-app-state-text">데이터를 불러오는 중입니다...</div>
+                    <div class="dust-app-state"></div>
+                    <div class="dust-app-locate"></div>
                 </div>
+
+                <div class="dust-app-timeline-graph-wrap">
+                    <ul class="dust-app-timeline-graph"></ul>
                 </div>
             </div>`;
         this.setViewElements();
     }
 
     setViewElements() {
-        this.dustStateWrap = getElement('.dust-state-wrap');
-        this.dustLocateEl = getElement('.dust-locate');
-        this.dustStateEl = getElement('.dust-state');
-        this.dustStateTextEl = getElement('.dust-state-text');
-        this.dustStateIconEl = getElement('.dust-state-icon');
-        this.dustTimelineGraph = getElement('.dust-timeline-graph');
+        this.dustStateWrap = getElement('.dust-app-state-wrap');
+        this.dustLocateEl = getElement('.dust-app-locate');
+        this.dustStateEl = getElement('.dust-app-state');
+        this.dustStateTextEl = getElement('.dust-app-state-text');
+        this.dustStateIconEl = getElement('.dust-app-state-icon');
+        this.dustTimelineGraph = getElement('.dust-app-timeline-graph');
     }
 
     updateDustState(currDustData, stationInfo) {
@@ -77,8 +75,8 @@ class DustAppView {
             const graphWidth = dustInfo.pm10Value / 2 <= 100 ? dustInfo.pm10Value / 2 : 100;
             const graphColor = this.getGraphColor(dustInfo);
             acc += `<li>
-                        <span class="dust-graph" style="width: ${graphWidth}%; background-color : ${graphColor}"></span>
-                        <span class="dust-value">${dustInfo.pm10Value}</span>
+                        <span class="dust-app-graph" style="width: ${graphWidth}%; background-color : ${graphColor}"></span>
+                        <span class="dust-app-value">${dustInfo.pm10Value}</span>
                     </li>`
             return acc;
         }, '');

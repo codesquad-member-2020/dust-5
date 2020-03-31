@@ -1,22 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title>dust - </title>
     <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/common.css">
     <link rel="stylesheet" href="./src/css/dustApp.css">
+    <link rel="stylesheet" href="./src/css/dustForecast.css">
 </head>
 
 <body>
-    <div class="dust-app-wrap">
-        <header class="dust-app-header">
+    <div class="dust-wrap">
+        <header class="dust-header">
             <ul class="dust-menu-nav">
-                <li class="dust-tep">미세먼지</li>
-                <li class="dust-report-tep">예보</li>
+                <li class="dust-app-tep">미세먼지</li>
+                <li class="dust-forecast-tep">예보</li>
             </ul>
         </header>
+
+        <div class="dust-forecast-wrap">
+            <h2 class="dust-forecast-title">미세먼지 예보</h2>
+            <div class="dust-forecast-img-set">
+                <img src="#">
+                <img src="#">
+                <img src="#">
+            </div>
+            <div class="dust-forecast-info">
+                <p class="info-text"></p>
+                <p class="grade-text"></p>
+            </div>
+            <div class="dust-forecast-progress">
+                <div class="progress-bar">
+                    <div class="bar">bar</div>
+                    <div class="bar-button">bar button</div>
+                </div>
+                <button class="progress-button">controller</button>
+            </div>
+        </div>
     </div>
 
     <script src="./src/js/main.js" type="module"></script>

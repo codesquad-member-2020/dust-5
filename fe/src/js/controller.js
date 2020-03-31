@@ -27,6 +27,10 @@ class Controller {
         this.updateDustAppView();
     }
 
+    findLocationFailure() {
+        alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
+    }
+
     checkExistDustData() {
         if (!this.dustAppModel.dustData) return false;
         this.updateDustAppView();
@@ -61,10 +65,6 @@ class Controller {
 
     addDustAppEvent() {
         this.dustAppEventManager.addDustTimelineGraphTouchEvent();
-    }
-
-    findLocationFailure() {
-        alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
     }
 }
 
