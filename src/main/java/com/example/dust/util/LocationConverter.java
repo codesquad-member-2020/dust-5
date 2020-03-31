@@ -24,11 +24,8 @@ public class LocationConverter {
    * Desc : TM 정보를 기반으로 얻어옴
    * Return : 측정소 이름 String
    */
-  public static String getStation() throws Exception {
+  public static String getStation(String x, String y) throws Exception {
     log.info("### getStation");
-
-    String x = "127.0266961";
-    String y = "37.575747";
 
     Map<String, String> tmMap = transferCoordinationType(x, y);
 
@@ -36,7 +33,6 @@ public class LocationConverter {
                       + ApiParams.STATION_SERVICE_KEY + "&"
                       + ApiParams.TM_X + tmMap.get("tmX") + "&"
                       + ApiParams.TM_Y + tmMap.get("tmY") + "&"
-                      + ApiParams.VER + "&"
                       + ApiParams.RETURN_TYPE_JSON
     );
 
@@ -48,7 +44,10 @@ public class LocationConverter {
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     List<StationData> documents = objectMapper.readValue(responseFromOpenApi, Station.class).getList();
-    log.info("### documents.get(0).getStationName(): {}", documents.get(0).getStationName());
+
+    for (StationData sd : documents) {
+      log.info("### sd.getStationName(): {}", sd.getStationName());
+    }
 
     return documents.get(0).getStationName();
   }
@@ -79,8 +78,6 @@ public class LocationConverter {
     log.info("### documents.get(0): {}", documents.get(0));
 
     Map<String, String> tmMap = new HashMap<>();
-    //    tmMap.put("tmX", "244148.546388");
-    //    tmMap.put("tmY", "412423.75772");
     tmMap.put("tmX", documents.get(0).getX());
     tmMap.put("tmY", documents.get(0).getY());
 
