@@ -53,7 +53,6 @@ class DustAppView {
                     </li>`
             return acc;
         }, '');
-        this.highlightSelectDustData();
     }
 
     getGraphColor(dustInfo) {

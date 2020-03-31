@@ -40,9 +40,15 @@ class Controller {
     }
 
     checkDustDataUpdateTime() {
+        if (this.checkDatakeyCondition() && new Date().getMinutes() < DUST_APP_RULE.UPDATE_MINUTE) return true;
+        return false;
+    }
+
+    checkDatakeyCondition() {
         const dustDatakey = this.dustAppModel.dustDataKey;
         const prevDustDataKey = this.dustAppModel.prevDustDataKey;
-        if (dustDatakey === prevDustDataKey && new Date().getMinutes() < DUST_APP_RULE.UPDATE_MINUTE) return true;
+        const baseKeyLength = 10;
+        if (dustDatakey.substr(baseKeyLength) - prevDustDataKey.substr(baseKeyLength) === 1) return true;
         return false;
     }
 
