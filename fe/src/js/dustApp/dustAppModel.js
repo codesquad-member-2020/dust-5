@@ -18,8 +18,16 @@ class DustAppModel {
     }
 
     makeDustDataKey() {
+        this.dustDataKey = `${LOCAL_STORAGE_KEY.DUST_DATA}${this.getDatakeyDate()}`;
+    }
+
+    getDatakeyDate() {
         const date = new Date();
-        this.dustDataKey = `${LOCAL_STORAGE_KEY.DUST_DATA}${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}${date.getHours()}`;
+        const year = date.getFullYear().toString();
+        const month = (date.getMonth() + 1).toString();
+        const day = date.getDate().toString();
+        const hour = date.getHours();
+        return year + (month[1] ? month : '0' + month[0]) + (day[1] ? day : '0' + day[0]) + (hour === 0 ? 24 : hour);
     }
 
     registerData(data, displayDataIndex = 0) {

@@ -8,6 +8,7 @@ class Controller {
     }
 
     runDustApp() {
+        this.dustAppView.render();
         if (navigator.geolocation) {
             navigator.geolocation
                 .getCurrentPosition(this.findLocationSuccess.bind(this), this.findLocationFailure, { enableHighAccuracy: true, maximumAge: 0, timeout: Infinity });
@@ -26,6 +27,10 @@ class Controller {
         this.updateDustAppView();
     }
 
+    findLocationFailure() {
+        alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
+    }
+
     checkExistDustData() {
         if (!this.dustAppModel.dustData) return false;
         this.updateDustAppView();
@@ -40,9 +45,17 @@ class Controller {
     }
 
     checkDustDataUpdateTime() {
-        const dustDatakey = this.dustAppModel.dustDataKey;
+        if (this.checkDatakeyCondition() && new Date().getMinutes() < DUST_APP_RULE.UPDATE_MINUTE) return true;
+        return false;
+    }
+
+    checkDatakeyCondition() {
         const prevDustDataKey = this.dustAppModel.prevDustDataKey;
-        if (dustDatakey === prevDustDataKey && new Date().getMinutes() < DUST_APP_RULE.UPDATE_MINUTE) return true;
+        if (!prevDustDataKey) return false;
+
+        const dustDatakey = this.dustAppModel.dustDataKey;
+        const baseKeyLength = 10;
+        if (dustDatakey.substr(baseKeyLength) - prevDustDataKey.substr(baseKeyLength) === 1) return true;
         return false;
     }
 
@@ -54,10 +67,6 @@ class Controller {
 
     addDustAppEvent() {
         this.dustAppEventManager.addDustTimelineGraphTouchEvent();
-    }
-
-    findLocationFailure() {
-        alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
     }
 }
 
