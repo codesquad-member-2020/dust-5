@@ -40,7 +40,9 @@ class Controller {
     }
 
     checkDustDataUpdateTime() {
-        if (this.dustAppModel.dustData && new Date().getMinutes() < DUST_APP_RULE.UPDATE_MINUTE) return true;
+        const dustDatakey = this.dustAppModel.dustDataKey;
+        const prevDustDataKey = this.dustAppModel.prevDustDataKey;
+        if (dustDatakey === prevDustDataKey && new Date().getMinutes() < DUST_APP_RULE.UPDATE_MINUTE) return true;
         return false;
     }
 

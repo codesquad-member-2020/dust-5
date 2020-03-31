@@ -29,7 +29,7 @@ const DUST_APP_RULE = {
             GOOD: '😄',
             NORMAL: '🙂',
             BAD: '😷',
-            VERY_BAD: '👿'
+            VERY_BAD: '😡'
         },
         COLOR: {
             GOOD: '#32a1ff',
@@ -39,7 +39,7 @@ const DUST_APP_RULE = {
         }
     },
     BASE_GRAPH_COLOR: '#fff',
-    SELECTED_GRAPH_COLOR: '#ff696125',
+    SELECTED_GRAPH_COLOR: '#ffe9f4',
 }
 
 export {
