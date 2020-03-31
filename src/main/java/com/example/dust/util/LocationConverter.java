@@ -2,6 +2,8 @@ package com.example.dust.util;
 
 import com.example.dust.bean.Coordinate;
 import com.example.dust.bean.CoordinateData;
+import com.example.dust.bean.Station;
+import com.example.dust.bean.StationData;
 import com.example.dust.metadata.ApiKey;
 import com.example.dust.metadata.ApiParams;
 import com.example.dust.metadata.ApiUrl;
@@ -41,9 +43,14 @@ public class LocationConverter {
     log.info("### URL: {}", url);
 
     String responseFromOpenApi = ConnectionUtil.getResponseFromOpenAPi(url, ApiKey.TRANSFER_COORDINATE_KEY);
-    log.info("### responseFromOpenApi: {}", responseFromOpenApi);
+    log.info("### getStation responseFromOpenApi: {}", responseFromOpenApi);
 
-    return "종로구";
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    List<StationData> documents = objectMapper.readValue(responseFromOpenApi, Station.class).getList();
+    log.info("### documents.get(0).getStationName(): {}", documents.get(0).getStationName());
+
+    return documents.get(0).getStationName();
   }
 
   /**
