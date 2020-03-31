@@ -7,4 +7,5 @@ public class ApiUrl {
       "http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getNearbyMsrstnList";
   public static final String FORECAST =
       "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth";
+  public static final String TRANSFER_COORDINATE = "https://dapi.kakao.com/v2/local/geo/transcoord.json";
 }

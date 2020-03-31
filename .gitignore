@@ -6,6 +6,7 @@ build/
 !**/src/test/**
 /logs/
 /testResults/
+/bin/
 
 ### STS ###
 .apt_generated
