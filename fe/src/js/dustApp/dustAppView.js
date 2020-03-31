@@ -3,6 +3,35 @@ import { DUST_APP_RULE } from '../constants/constant.js';
 
 class DustAppView {
     constructor() {
+        this.dustStateWrap = null;
+        this.dustLocateEl = null;
+        this.dustStateEl = null;
+        this.dustStateTextEl = null;
+        this.dustStateIconEl = null;
+        this.dustTimelineGraph = null;
+    }
+
+    render() {
+        getElement('.dust-app-wrap').innerHTML +=
+            `<div class="dust-app-container">
+                <div class="dust-content-wrap active">
+                        <div class="dust-state-wrap">
+                            <h2 class="dust-title">미세먼지 앱</h2>
+                            <div class="dust-state-icon">🤔</div>
+                            <div class="dust-state-text">데이터를 불러오는 중입니다...</div>
+                            <div class="dust-state"></div>
+                            <div class="dust-locate"></div>
+                        </div>
+
+                <div class="dust-timeline-graph-wrap">
+                    <ul class="dust-timeline-graph"></ul>
+                </div>
+                </div>
+            </div>`;
+        this.setViewElements();
+    }
+
+    setViewElements() {
         this.dustStateWrap = getElement('.dust-state-wrap');
         this.dustLocateEl = getElement('.dust-locate');
         this.dustStateEl = getElement('.dust-state');

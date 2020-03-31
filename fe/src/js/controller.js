@@ -8,6 +8,7 @@ class Controller {
     }
 
     runDustApp() {
+        this.dustAppView.render();
         if (navigator.geolocation) {
             navigator.geolocation
                 .getCurrentPosition(this.findLocationSuccess.bind(this), this.findLocationFailure, { enableHighAccuracy: true, maximumAge: 0, timeout: Infinity });
