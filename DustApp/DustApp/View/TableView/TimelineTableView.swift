@@ -28,6 +28,9 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
+        cell.setConstraint(percentage: 0.8)
+        cell.measuredBar.backgroundColor = .blue
+        
         return cell
     }
     
