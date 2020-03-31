@@ -38,7 +38,7 @@ const DUST_APP_RULE = {
             VERY_BAD: '#ff5959'
         }
     },
-    BASE_GRAPH_COLOR: '#fff',
+    BASE_COLOR: '#fff',
     SELECTED_GRAPH_COLOR: '#ffe9f4',
 }
 

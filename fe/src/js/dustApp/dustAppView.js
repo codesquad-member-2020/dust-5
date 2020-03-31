@@ -3,6 +3,7 @@ import { DUST_APP_RULE } from '../constants/constant.js';
 
 class DustAppView {
     constructor() {
+        this.dustStateWrap = getElement('.dust-state-wrap');
         this.dustLocateEl = getElement('.dust-locate');
         this.dustStateEl = getElement('.dust-state');
         this.dustStateTextEl = getElement('.dust-state-text');
@@ -13,6 +14,7 @@ class DustAppView {
     updateDustState(currDustData, stationInfo) {
         this.dustLocateEl.innerHTML = `<b>${stationInfo}</b> 측정소 기준`;
         this.dustStateEl.innerHTML = `<b>${currDustData.pm10Value}</b> &micro;g/m³ ${currDustData.dataTime.slice(-DUST_APP_RULE.DATA_TIME_LENGTH)}`;
+        this.dustStateWrap.style.background = `linear-gradient( to bottom, ${this.getGraphColor(currDustData)}, ${DUST_APP_RULE.BASE_COLOR} )`;
         this.updateDustStateSwitch(currDustData)
     }
 
@@ -64,7 +66,7 @@ class DustAppView {
     }
 
     highlightSelectDustData(currindex = 0, prevIndex = 1) {
-        this.dustTimelineGraph.children[prevIndex].style.backgroundColor = DUST_APP_RULE.BASE_GRAPH_COLOR;
+        this.dustTimelineGraph.children[prevIndex].style.backgroundColor = DUST_APP_RULE.BASE_COLOR;
         this.dustTimelineGraph.children[currindex].style.backgroundColor = DUST_APP_RULE.SELECTED_GRAPH_COLOR;
     }
 }
