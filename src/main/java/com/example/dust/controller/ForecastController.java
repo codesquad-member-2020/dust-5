@@ -2,7 +2,6 @@ package com.example.dust.controller;
 
 import com.example.dust.bean.*;
 import com.example.dust.message.SuccessMessages;
-import com.example.dust.metadata.ApiKey;
 import com.example.dust.metadata.ApiParams;
 import com.example.dust.metadata.ApiUrl;
 import com.example.dust.util.ConnectionUtil;
@@ -15,15 +14,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -34,10 +30,10 @@ public class ForecastController {
   public ResponseEntity<ApiResponse> forecast() throws IOException {
 
     URL url = new URL(ApiUrl.FORECAST + "?"
-        + ApiParams.FORECAST_SERVICE_KEY + "&"
-        + ApiParams.SEARCH_DATE + ForecastDateUtil.setForecastDate() + "&"
-        + ApiParams.INFORM_CODE + "&"
-        + ApiParams.RETURN_TYPE_JSON
+                      + ApiParams.FORECAST_SERVICE_KEY + "&"
+                      + ApiParams.SEARCH_DATE + ForecastDateUtil.setForecastDate() + "&"
+                      + ApiParams.INFORM_CODE + "&"
+                      + ApiParams.RETURN_TYPE_JSON
     );
 
     ObjectMapper objectMapper = new ObjectMapper();
@@ -48,15 +44,20 @@ public class ForecastController {
     return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, forecast), HttpStatus.OK);
   }
 
+  /**
+   * Feat : 미세먼지 정보를 가져옵니다
+   * Desc : GPS 좌표를 기반으로 가장 가까운 측정소를 가져옵니다
+   * Return :
+   */
   @GetMapping("/dust-status")
-  public ResponseEntity<ApiResponse> dustStatus() throws Exception {
+  public ResponseEntity<ApiResponse> dustStatus(@RequestParam String x, @RequestParam String y) throws Exception {
     log.info("### info dustStatus");
 
     URL url = new URL(ApiUrl.DUST_STATUS + "?"
                       + ApiParams.FORECAST_SERVICE_KEY + "&"
                       + ApiParams.NUM_OF_ROWS + "&"
                       + ApiParams.PAGE_NO + "&"
-                      + ApiParams.STATION_NAME + LocationConverter.getStation() + "&"
+                      + ApiParams.STATION_NAME + LocationConverter.getStation(x, y) + "&"
                       + ApiParams.DATA_TERM + "&"
                       + ApiParams.VERSION + "&"
                       + ApiParams.RETURN_TYPE_JSON
