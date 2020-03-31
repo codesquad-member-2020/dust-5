@@ -24,6 +24,9 @@ class DustViewController: UIViewController {
         super.viewDidLoad()
         let state = measureDustGrade(measuredValue: measuredValue)
         inputUIValues(state: state)
+        
+        let networkManager = NetworkManager(url: "http://52.78.167.59:8080/forecast/dust-status")
+        networkManager.testRequest()
     }
     
     func makeGradientView(gradientColor: [Any]) {

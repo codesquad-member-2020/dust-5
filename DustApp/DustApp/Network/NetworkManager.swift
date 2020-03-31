@@ -37,7 +37,20 @@ class NetworkManager {
         }
     }
     
-    func encode24DustData(data: Data) {
+    func testRequest() {
+        urlDataTask.request(url: url, methodType: .get, body: nil) { result in
+            switch result {
+                case .success(let responseData):
+                    self.encode24DustData(data: responseData)
+                    print(responseData)
+                case .failure(let error):
+                    //추후 에러 핸들링 방법 추가하기
+                    print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func encode24DustData(data: Any) {
         
     }
 }
