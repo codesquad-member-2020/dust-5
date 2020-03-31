@@ -50,10 +50,11 @@ class Controller {
     }
 
     checkDatakeyCondition() {
-        const dustDatakey = this.dustAppModel.dustDataKey;
         const prevDustDataKey = this.dustAppModel.prevDustDataKey;
+        if (!prevDustDataKey) return false;
+
+        const dustDatakey = this.dustAppModel.dustDataKey;
         const baseKeyLength = 10;
-        if (dustDatakey || prevDustDataKey) return false;
         if (dustDatakey.substr(baseKeyLength) - prevDustDataKey.substr(baseKeyLength) === 1) return true;
         return false;
     }
