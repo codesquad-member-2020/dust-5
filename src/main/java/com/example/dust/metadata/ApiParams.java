@@ -7,8 +7,8 @@ public class ApiParams {
   public static final String STATION_SERVICE_KEY = "ServiceKey=" + ApiKey.STATION_SEARCH_KEY;
 
   public static final String RETURN_TYPE_JSON = "_returnType=json";
-  public static final String NUM_OF_ROWS = "numOfRows=";
-  public static final String PAGE_NO = "pageNo=";
+  public static final String NUM_OF_ROWS = "numOfRows=25";
+  public static final String PAGE_NO = "pageNo=1";
 
   //대기예보
   public static final String SEARCH_DATE = "searchDate=" + LocalDate.now().toString();
@@ -17,8 +17,8 @@ public class ApiParams {
   //좌표변환
   public static final String X = "x=";
   public static final String Y = "y=";
-  public static final String INPUT_COORD = "input_coord=WGS84";
-  public static final String OUTPUT_COORD = "output_coord=TM";
+  public static final String INPUT_COORDINATION = "input_coord=WGS84";
+  public static final String OUTPUT_COORDINATION = "output_coord=TM";
 
   //측정소
   public static final String TM_X = "tmX=";
