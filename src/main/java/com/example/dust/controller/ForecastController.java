@@ -2,7 +2,10 @@ package com.example.dust.controller;
 
 import com.example.dust.bean.ApiResponse;
 import com.example.dust.bean.Forecast;
+import com.example.dust.bean.ForecastData;
 import com.example.dust.message.SuccessMessages;
+import com.example.dust.metadata.ApiParams;
+import com.example.dust.metadata.ApiUrl;
 import com.example.dust.util.UrlBuilder;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,6 +24,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -82,35 +86,30 @@ public class ForecastController {
 
   @GetMapping
   public ResponseEntity<ApiResponse> forecast() throws IOException {
-    String path = "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth";
-    String serviceKey =
-        "serviceKey=mcPOMk6d6ZIiWSfWF0W2X%2B49iH6SeYJyMG61uC1PfEVTWQC7rAepSWCYXt%2F3Rlb5MM2YGP92o28i5qupEEC6WA%3D%3D";
-    String searchDate = "searchDate=" + LocalDate.now().toString();
-    String informCode = "InformCode=PM10";
-    String returnType = "_returnType=json";
 
-    StringBuilder result = new StringBuilder();
-    BufferedReader bufferedReader = null;
-
-    URL url = new URL(path + "?"
-                      + serviceKey + "&"
-                      + searchDate + "&"
-                      + informCode + "&"
-                      + returnType);
+    URL url = new URL(ApiUrl.FORECAST + "?"
+                      + ApiParams.SERVICE_KEY + "&"
+                      + ApiParams.SEARCH_DATE + "&"
+                      + ApiParams.INFORM_CODE + "&"
+                      + ApiParams.RETURN_TYPE
+    );
 
     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
     urlConnection.setRequestMethod("GET");
 
-    bufferedReader =
+    BufferedReader bufferedReader =
         new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), StandardCharsets.UTF_8));
+
     String line;
+    StringBuilder result = new StringBuilder();
+
     while ((line = bufferedReader.readLine()) != null) {
       result.append(line);
     }
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    Forecast forecast = objectMapper.readValue(result.toString(), Forecast.class);
-    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, forecast.getList()), HttpStatus.OK);
+    List<ForecastData> forecast = objectMapper.readValue(result.toString(), Forecast.class).getTodayForecast();
+    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, forecast), HttpStatus.OK);
   }
 }
