@@ -14,6 +14,15 @@
 		305CBFD024305C3400C62E81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305CBFCE24305C3400C62E81 /* LaunchScreen.storyboard */; };
 		305CBFDB24306FAF00C62E81 /* DustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CBFDA24306FAF00C62E81 /* DustViewController.swift */; };
 		305CBFDD2430841900C62E81 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CBFDC2430841900C62E81 /* ForecastViewController.swift */; };
+		30B0AB522431C71900CE9727 /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB512431C71900CE9727 /* DustState.swift */; };
+		30B0AB542431C79100CE9727 /* GoodState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB532431C79100CE9727 /* GoodState.swift */; };
+		30B0AB562431C8C300CE9727 /* NormalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB552431C8C300CE9727 /* NormalState.swift */; };
+		30B0AB582431C96600CE9727 /* BadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB572431C96500CE9727 /* BadState.swift */; };
+		30B0AB5A2431C9AC00CE9727 /* WorstState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB592431C9AC00CE9727 /* WorstState.swift */; };
+		30B0AB5E2431CE8B00CE9727 /* DustGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */; };
+		30B0AB6B2432164300CE9727 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0AB6A2432164300CE9727 /* TimelineTableViewCell.swift */; };
+		30B6F4C2243224700059B7F4 /* TimelineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6F4C1243224700059B7F4 /* TimelineTableView.swift */; };
+		30B6F4C4243227C00059B7F4 /* MeasuredHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6F4C3243227C00059B7F4 /* MeasuredHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,15 @@
 		305CBFD124305C3400C62E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		305CBFDA24306FAF00C62E81 /* DustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustViewController.swift; sourceTree = "<group>"; };
 		305CBFDC2430841900C62E81 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		30B0AB512431C71900CE9727 /* DustState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustState.swift; sourceTree = "<group>"; };
+		30B0AB532431C79100CE9727 /* GoodState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodState.swift; sourceTree = "<group>"; };
+		30B0AB552431C8C300CE9727 /* NormalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalState.swift; sourceTree = "<group>"; };
+		30B0AB572431C96500CE9727 /* BadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadState.swift; sourceTree = "<group>"; };
+		30B0AB592431C9AC00CE9727 /* WorstState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorstState.swift; sourceTree = "<group>"; };
+		30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustGrade.swift; sourceTree = "<group>"; };
+		30B0AB6A2432164300CE9727 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		30B6F4C1243224700059B7F4 /* TimelineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableView.swift; sourceTree = "<group>"; };
+		30B6F4C3243227C00059B7F4 /* MeasuredHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuredHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,9 @@
 		305CBFC224305C3000C62E81 /* DustApp */ = {
 			isa = PBXGroup;
 			children = (
+				30B0AB5F2432090A00CE9727 /* View */,
+				30B0AB502431C6FF00CE9727 /* Protocol */,
+				30B0AB4D2431A4A000CE9727 /* Model */,
 				305CBFD724306DF600C62E81 /* Controllers */,
 				305CBFC324305C3000C62E81 /* AppDelegate.swift */,
 				305CBFC524305C3000C62E81 /* SceneDelegate.swift */,
@@ -76,6 +97,52 @@
 				305CBFDC2430841900C62E81 /* ForecastViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		30B0AB4D2431A4A000CE9727 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30B0AB532431C79100CE9727 /* GoodState.swift */,
+				30B0AB552431C8C300CE9727 /* NormalState.swift */,
+				30B0AB572431C96500CE9727 /* BadState.swift */,
+				30B0AB592431C9AC00CE9727 /* WorstState.swift */,
+				30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */,
+				30B6F4C3243227C00059B7F4 /* MeasuredHistory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30B0AB502431C6FF00CE9727 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				30B0AB512431C71900CE9727 /* DustState.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		30B0AB5F2432090A00CE9727 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30B0AB6724320AA400CE9727 /* TableView */,
+				30B0AB602432091300CE9727 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30B0AB602432091300CE9727 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				30B0AB6A2432164300CE9727 /* TimelineTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		30B0AB6724320AA400CE9727 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				30B6F4C1243224700059B7F4 /* TimelineTableView.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +216,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B0AB582431C96600CE9727 /* BadState.swift in Sources */,
 				305CBFC424305C3000C62E81 /* AppDelegate.swift in Sources */,
+				30B0AB542431C79100CE9727 /* GoodState.swift in Sources */,
+				30B0AB6B2432164300CE9727 /* TimelineTableViewCell.swift in Sources */,
 				305CBFDD2430841900C62E81 /* ForecastViewController.swift in Sources */,
+				30B0AB522431C71900CE9727 /* DustState.swift in Sources */,
+				30B0AB5E2431CE8B00CE9727 /* DustGrade.swift in Sources */,
 				305CBFDB24306FAF00C62E81 /* DustViewController.swift in Sources */,
+				30B6F4C2243224700059B7F4 /* TimelineTableView.swift in Sources */,
+				30B0AB5A2431C9AC00CE9727 /* WorstState.swift in Sources */,
+				30B6F4C4243227C00059B7F4 /* MeasuredHistory.swift in Sources */,
+				30B0AB562431C8C300CE9727 /* NormalState.swift in Sources */,
 				305CBFC624305C3000C62E81 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

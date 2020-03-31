@@ -9,7 +9,6 @@
 import UIKit
 
 class DustViewController: UIViewController {
-    
     @IBOutlet var gradientView: UIView!
     @IBOutlet var statusImage: UIImageView!
     @IBOutlet var statusLabel: UILabel!
@@ -17,24 +16,45 @@ class DustViewController: UIViewController {
     @IBOutlet var measureTimeLabel: UILabel!
     @IBOutlet var measurePlaceLabel: UILabel!
     
+    //서버에서 받아올 데이터 = [측정값, 측정시각, 측정소(현재 위치 좌표 넘겨야함) ]
+    var measuredValue:Int = 67
+    @IBOutlet var tableView: TimelineTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeGradientView()
+        let state = measureDustGrade(measuredValue: measuredValue)
+        inputUIValues(state: state)
     }
     
-    func makeGradientView() {
+    func makeGradientView(gradientColor: [Any]) {
         let gradient = CAGradientLayer()
-        
         gradient.frame = view.bounds
         gradient.endPoint = CGPoint(x: 0.5, y: 1)
-        
-        gradient.colors = [
-            UIColor(red: 0, green: 0.5, blue: 0.9, alpha: 1).cgColor,
-            UIColor(red: 0, green: 0.5, blue: 0.9, alpha: 0.2).cgColor,
-            UIColor(red: 0, green: 0.1, blue: 0.1, alpha: 0.1).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor.white
-        ]
+        gradient.colors = gradientColor
         gradientView.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    func inputStatusImage(stateEmoji: UIImage) {
+        statusImage.image = stateEmoji
+    }
+    
+    func inputStatusLabel(state: String) {
+        statusLabel.text = state
+    }
+    
+    func inputStatusValueLabel(measuredValue: Int) {
+        statusValueLabel.text = "\(measuredValue)"
+    }
+    
+    func measureDustGrade(measuredValue: Int) -> DustState {
+        let grade = DustGrade(measuredValue)
+        return grade.gradeDustState(measuredValue: measuredValue)
+    }
+    
+    func inputUIValues(state: DustState) {
+        makeGradientView(gradientColor: state.gradientColor)
+        inputStatusImage(stateEmoji: state.stateEmoji)
+        inputStatusLabel(state: state.state)
+        inputStatusValueLabel(measuredValue: measuredValue)
     }
 }
