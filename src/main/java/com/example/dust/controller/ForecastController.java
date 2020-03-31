@@ -78,6 +78,8 @@ public class ForecastController {
 
     URL url = new URL(ApiUrl.DUST_STATUS + "?"
                       + ApiParams.FORECAST_SERVICE_KEY + "&"
+                      + ApiParams.NUM_OF_ROWS + "25" + "&"
+                      + ApiParams.PAGE_NO + "1" + "&"
                       + ApiParams.STATION_NAME + getStation() + "&"
                       + ApiParams.DATA_TERM + "&"
                       + ApiParams.VERSION + "&"
