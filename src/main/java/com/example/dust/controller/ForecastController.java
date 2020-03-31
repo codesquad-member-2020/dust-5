@@ -2,6 +2,7 @@ package com.example.dust.controller;
 
 import com.example.dust.bean.*;
 import com.example.dust.message.SuccessMessages;
+import com.example.dust.metadata.ApiKey;
 import com.example.dust.metadata.ApiParams;
 import com.example.dust.metadata.ApiUrl;
 import com.example.dust.util.ConnectionUtil;
@@ -16,15 +17,57 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
 @RequestMapping("/forecast")
 public class ForecastController {
 
-  public String getStation() {
-    log.debug("### getStation");
+  public Map<String, String> transferCoord(String x, String y) throws Exception {
+    log.info("### getCoord");
+
+    URL url = new URL(ApiUrl.TRANSFER_COORDINATE + "?"
+                      + ApiParams.X + x + "&"
+                      + ApiParams.Y + y + "&"
+                      + ApiParams.INPUT_COORD + "&"
+                      + ApiParams.OUTPUT_COORD
+    );
+
+    log.info("### URL: {}", url);
+
+    String responseFromOpenApi = ConnectionUtil.getResponseFromOpenAPi(url, ApiKey.TRANSFER_COORDINATE_KEY);
+    log.info("### responseFromOpenApi: {}", responseFromOpenApi);
+
+    Map<String, String> tmMap = new HashMap<>();
+    tmMap.put("tmX", "244148.546388");
+    tmMap.put("tmY", "412423.75772");
+
+    return tmMap;
+  }
+
+  public String getStation() throws Exception {
+    log.info("### getStation");
+
+    String x = "127.0266961";
+    String y = "37.575747";
+
+    Map<String, String> tmMap = transferCoord(x, y);
+
+    URL url = new URL(ApiUrl.STATION + "?"
+                      + ApiParams.STATION_SERVICE_KEY + "&"
+                      + ApiParams.TM_X + tmMap.get("tmX") + "&"
+                      + ApiParams.TM_Y + tmMap.get("tmY") + "&"
+                      + ApiParams.VER + "&"
+                      + ApiParams.RETURN_TYPE_JSON
+    );
+
+    log.info("### URL: {}", url);
+
+    String responseFromOpenApi = ConnectionUtil.getResponseFromOpenAPi(url, ApiKey.TRANSFER_COORDINATE_KEY);
+    log.info("### responseFromOpenApi: {}", responseFromOpenApi);
 
     return "종로구";
   }
@@ -34,11 +77,11 @@ public class ForecastController {
     log.info("### info dustStatus");
 
     URL url = new URL(ApiUrl.DUST_STATUS + "?"
-        + ApiParams.FORECAST_SERVICE_KEY + "&"
-        + ApiParams.STATION_NAME + "&"
-        + ApiParams.DATA_TERM + "&"
-        + ApiParams.VERSION + "&"
-        + ApiParams.RETURN_TYPE
+                      + ApiParams.FORECAST_SERVICE_KEY + "&"
+                      + ApiParams.STATION_NAME + getStation() + "&"
+                      + ApiParams.DATA_TERM + "&"
+                      + ApiParams.VERSION + "&"
+                      + ApiParams.RETURN_TYPE_JSON
     );
     log.info("### URL: {}", url);
 
@@ -57,7 +100,7 @@ public class ForecastController {
                       + ApiParams.FORECAST_SERVICE_KEY + "&"
                       + ApiParams.SEARCH_DATE + "&"
                       + ApiParams.INFORM_CODE + "&"
-                      + ApiParams.RETURN_TYPE
+                      + ApiParams.RETURN_TYPE_JSON
     );
 
     String responseFormOpenApi = ConnectionUtil.getResponseFromOpenAPi(url);
