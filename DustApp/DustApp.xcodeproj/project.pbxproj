@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		301223C624335ADA00BB712C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C524335ADA00BB712C /* LocationManager.swift */; };
+		301223C824335F7800BB712C /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C724335F7800BB712C /* RequestManager.swift */; };
+		301223CA243363A600BB712C /* EncodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C9243363A600BB712C /* EncodeManager.swift */; };
+		301223CC243363D800BB712C /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223CB243363D800BB712C /* Coordinate.swift */; };
 		305CBFC424305C3000C62E81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CBFC324305C3000C62E81 /* AppDelegate.swift */; };
 		305CBFC624305C3000C62E81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CBFC524305C3000C62E81 /* SceneDelegate.swift */; };
 		305CBFCB24305C3000C62E81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305CBFC924305C3000C62E81 /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		301223C524335ADA00BB712C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		301223C724335F7800BB712C /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		301223C9243363A600BB712C /* EncodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeManager.swift; sourceTree = "<group>"; };
+		301223CB243363D800BB712C /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		305CBFC024305C3000C62E81 /* DustApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DustApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		305CBFC324305C3000C62E81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		305CBFC524305C3000C62E81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				301223C524335ADA00BB712C /* LocationManager.swift */,
+				301223C724335F7800BB712C /* RequestManager.swift */,
+				301223C9243363A600BB712C /* EncodeManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 				30B0AB592431C9AC00CE9727 /* WorstState.swift */,
 				30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */,
 				30B6F4C3243227C00059B7F4 /* MeasuredHistory.swift */,
+				301223CB243363D800BB712C /* Coordinate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,12 +236,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301223C824335F7800BB712C /* RequestManager.swift in Sources */,
 				30B0AB582431C96600CE9727 /* BadState.swift in Sources */,
 				305CBFC424305C3000C62E81 /* AppDelegate.swift in Sources */,
 				30B0AB542431C79100CE9727 /* GoodState.swift in Sources */,
 				30B0AB6B2432164300CE9727 /* TimelineTableViewCell.swift in Sources */,
 				305CBFDD2430841900C62E81 /* ForecastViewController.swift in Sources */,
 				30B0AB522431C71900CE9727 /* DustState.swift in Sources */,
+				301223CA243363A600BB712C /* EncodeManager.swift in Sources */,
 				30B0AB5E2431CE8B00CE9727 /* DustGrade.swift in Sources */,
 				305CBFDB24306FAF00C62E81 /* DustViewController.swift in Sources */,
 				30B6F4C2243224700059B7F4 /* TimelineTableView.swift in Sources */,
@@ -240,6 +251,7 @@
 				301223C624335ADA00BB712C /* LocationManager.swift in Sources */,
 				30B6F4C4243227C00059B7F4 /* MeasuredHistory.swift in Sources */,
 				30B0AB562431C8C300CE9727 /* NormalState.swift in Sources */,
+				301223CC243363D800BB712C /* Coordinate.swift in Sources */,
 				305CBFC624305C3000C62E81 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
