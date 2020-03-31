@@ -8,8 +8,8 @@ import java.util.Map;
 public class UrlBuilder {
 
   public static String dustStatus(Map<String, String> apiParameters) {
-    StringBuilder urlBuilder = new StringBuilder(ApiUrl.dustStatus);
-    urlBuilder.append("?ServiceKey=").append(ApiKey.forecastKey);
+    StringBuilder urlBuilder = new StringBuilder(ApiUrl.DUST_STATUS);
+    urlBuilder.append("?ServiceKey=").append(ApiKey.FORECAST_KEY);
 
     for (String key : apiParameters.keySet()) {
       urlBuilder.append("&").append(key).append("=").append(apiParameters.get(key));
