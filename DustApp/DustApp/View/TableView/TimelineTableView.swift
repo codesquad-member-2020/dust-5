@@ -33,10 +33,16 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
         cell.setConstraint(percentage: CGFloat(figure[indexPath.row]))
         cell.measuredBar.backgroundColor = .blue
-        
+        cell.measuredValue.text = "\(figure[indexPath.row])"
+        //여기서 각 셀마다 컬러 변경 필요
         return cell
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let cell = self.visibleCells.first as? TimelineTableViewCell {
+            //여기서 셀이 가진 데이터 가져와서 뷰컨의 라벨들에게 뿌려줘야함..
+        }
+    }
     
     
 }

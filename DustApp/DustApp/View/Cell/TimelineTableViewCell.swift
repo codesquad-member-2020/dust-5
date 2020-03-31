@@ -29,11 +29,6 @@ class TimelineTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        measuredValue.text = nil
-//        measuredBar.backgroundColor = nil
-//    }
     
     func setConstraint(percentage: CGFloat) {
         measuredBar.translatesAutoresizingMaskIntoConstraints = false
