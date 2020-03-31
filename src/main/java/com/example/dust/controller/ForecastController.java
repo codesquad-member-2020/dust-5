@@ -1,8 +1,6 @@
 package com.example.dust.controller;
 
-import com.example.dust.bean.ApiResponse;
-import com.example.dust.bean.Forecast;
-import com.example.dust.bean.ForecastData;
+import com.example.dust.bean.*;
 import com.example.dust.message.SuccessMessages;
 import com.example.dust.metadata.ApiParams;
 import com.example.dust.metadata.ApiUrl;
@@ -48,8 +46,8 @@ public class ForecastController {
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    Forecast forecast = objectMapper.readValue(responseFromOpenApi, Forecast.class);
-    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, forecast.getList()), HttpStatus.OK);
+    List<DustStatusData> dustStatus = objectMapper.readValue(responseFromOpenApi, DustStatus.class).getList();
+    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, dustStatus), HttpStatus.OK);
   }
 
   @GetMapping
