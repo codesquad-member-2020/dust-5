@@ -1,1 +1,4 @@
-css/reset.css
+src/css/reset.css
+src/js/constants/url.js
+src/js/dist
+node_modules
