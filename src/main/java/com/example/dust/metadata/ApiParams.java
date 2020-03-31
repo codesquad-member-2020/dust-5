@@ -11,7 +11,7 @@ public class ApiParams {
   public static final String PAGE_NO = "pageNo=1";
 
   //대기예보
-  public static final String SEARCH_DATE = "searchDate=" + LocalDate.now().toString();
+  public static final String SEARCH_DATE = "searchDate=";
   public static final String INFORM_CODE = "InformCode=PM10";
 
   //좌표변환
