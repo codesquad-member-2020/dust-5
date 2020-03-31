@@ -7,6 +7,8 @@ public class ApiParams {
   public static final String STATION_SERVICE_KEY = "ServiceKey=" + ApiKey.STATION_SEARCH_KEY;
 
   public static final String RETURN_TYPE_JSON = "_returnType=json";
+  public static final String NUM_OF_ROWS = "numOfRows=";
+  public static final String PAGE_NO = "pageNo=";
 
   //대기예보
   public static final String SEARCH_DATE = "searchDate=" + LocalDate.now().toString();
