@@ -10,13 +10,14 @@
 }
 
 .dust-app-title {
-    font-size: 30px;
+    margin-top: 10px;
+    font-size: 25px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .dust-app-state-icon {
-    font-size: 120px;
+    font-size: 110px;
     margin-bottom: 25px;
 }
 

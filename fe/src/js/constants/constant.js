@@ -32,7 +32,7 @@ const DUST_APP_RULE = {
             NORMAL: '보통',
             BAD: '나쁨',
             VERY_BAD: '매우 나쁨',
-            ERROR: '해당 데이터가 없습니다.',
+            ERROR: '측정 데이터가 없습니다.',
         },
         ICON: {
             GOOD: '😄',

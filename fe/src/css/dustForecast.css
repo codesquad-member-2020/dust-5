@@ -1,0 +1,91 @@
+.dust-forecast-wrap {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+}
+
+.dust-forecast-title {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.dust-forecast-img-set {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.dust-forecast-img-set img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.dust-forecast-img-set img.active {
+    display: block;
+}
+
+.dust-forecast-info {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    font-size: 12.5px;
+    line-height: 14.5px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.info-text {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dust-forecast-progress {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.progress-button {
+    background-color: #f0f0f0;
+    padding: 0;
+    width: 44px;
+    line-height: 44px;
+    border: 1px solid #ccc;
+    box-sizing: content-box;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.progress-bar {
+    width: 80%;
+    position: relative;
+}
+
+.bar {
+    height: 2.5px;
+    background: #707070;
+    width: 100%;
+}
+
+.progress-bar>.bar-button {
+    position: absolute;
+    top: -12.5px;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    border: 1px #ccc solid;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px #32325d4d, 0 1px 3px #0000004d;
+    cursor: pointer;
+}
