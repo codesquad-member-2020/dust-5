@@ -2,10 +2,11 @@ package com.example.dust.bean;
 
 import lombok.Getter;
 
+import java.util.Map;
+
 @Getter
 public class ApiResponse {
   private String status;
-  private String stationName;
   private Object contents;
 
   public ApiResponse() {
@@ -21,9 +22,8 @@ public class ApiResponse {
     this.contents = contents;
   }
 
-  public ApiResponse(String status, String stationName, Object contents) {
+  public ApiResponse(String status, Map<String, Object> contents) {
     this.status = status;
-    this.stationName = stationName;
     this.contents = contents;
   }
 }
