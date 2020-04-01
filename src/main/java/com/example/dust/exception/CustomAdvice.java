@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import javax.validation.ConstraintViolationException;
+
 @Slf4j
 @ControllerAdvice
 public class CustomAdvice {
@@ -18,5 +20,14 @@ public class CustomAdvice {
   @ResponseBody
   public ApiResponse handleError() {
     return new ApiResponse(ErrorMessages.ERROR, "공공API 문제");
+  }
+
+  @ExceptionHandler(ConstraintViolationException.class)
+  @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+  @ResponseBody
+  public ApiResponse handleViolationError(ConstraintViolationException e) {
+    log.info("### handleViolationError : {}", e.getMessage());
+
+    return new ApiResponse(ErrorMessages.ERROR, e.getMessage());
   }
 }
