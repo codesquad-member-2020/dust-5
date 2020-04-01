@@ -1,6 +1,6 @@
-import { ALERT_MESSAGE, DUST_APP_RULE } from './constants/constant.js';
+import { ALERT_MESSAGE, DUST_APP_RULE } from '../constants/constant.js';
 
-class Controller {
+class DustAppController {
     constructor(module) {
         this.dustAppModel = module.dustAppModel;
         this.dustAppView = module.dustAppView;
@@ -10,6 +10,7 @@ class Controller {
     runDustApp() {
         this.dustAppModel.init();
         this.dustAppView.init();
+        this.dustAppEventManager.init();
         this.traceUserLocation();
     }
 
@@ -67,7 +68,6 @@ class Controller {
     updateDustAppView() {
         this.dustAppView.updateDustState(this.dustAppModel.displayDustData, this.dustAppModel.stationInfo);
         this.dustAppView.updateDustTimeLine(this.dustAppModel.dustData);
-        this.addDustAppEvent();
     }
 
     addDustAppEvent() {
@@ -75,4 +75,4 @@ class Controller {
     }
 }
 
-export default Controller;
+export default DustAppController;
