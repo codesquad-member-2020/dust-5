@@ -27,7 +27,6 @@ class Dust24NetworkManager {
         urlDataTask.request(url: urlWithQuery, methodType: .get) { result in
             switch result {
             case .success(let anyData):
-                self.decode24DustData(data: anyData)
                 print(anyData)
             case .failure(let error):
                 //추후 에러 핸들링 방법 추가하기
@@ -36,8 +35,5 @@ class Dust24NetworkManager {
         }
     }
    
-    
-    func decode24DustData(data: Any) {
-        
-    }
+  
 }

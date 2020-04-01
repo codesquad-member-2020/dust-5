@@ -27,19 +27,16 @@ class URLDataTask {
         let task = session.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
                 if let error = error as NSError?, error.domain == NSURLErrorDomain {
-                        completion(.failure(.domainError))
+                    completion(.failure(.domainError))
                 }
                 return
             }
             
-            do {
-                let anyData = try JSONSerialization.jsonObject(with: data, options: [])
-                completion(.success(anyData))
-            } catch {
-                completion(.failure(.decodingError))
-            }
+            let decoder = JSONDecoder()
+            guard let anyData = try? decoder.decode(MeasuredHistory.self, from: data) else {
+                completion(.failure(.decodingError)); return }
+            completion(.success(anyData))
         }
-        
         task.resume()
     }
 }
