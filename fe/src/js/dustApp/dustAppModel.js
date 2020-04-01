@@ -8,7 +8,6 @@ class DustAppModel {
         this.stationInfo = null;
         this.dustDataKey = null;
         this.prevDustDataKey = localStorage.getItem(LOCAL_STORAGE_KEY.PREV_DUST_DATA);
-        this.init();
     }
 
     init() {

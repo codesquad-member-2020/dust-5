@@ -12,7 +12,7 @@ class DustAppEventManager {
         this.dustAppView = module.dustAppView;
     }
 
-    addDustTimelineGraphTouchEvent() {
+    init() {
         this.dustAppView.dustTimelineGraph.addEventListener('touchstart', this.touchstartHandle);
         this.dustAppView.dustTimelineGraph.addEventListener('touchmove', this.touchmoveHandle.bind(this));
         this.dustAppView.dustTimelineGraph.addEventListener('touchend', this.touchendHandle);

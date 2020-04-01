@@ -5,7 +5,7 @@ module.exports = {
     entry: "./src/js/main.js",
     output: {
         path: path.resolve("./src/js", "dist"),
-        filename: "dustApp.bundle.js",
+        filename: "dust.bundle.js",
     },
     module: {
         rules: [
