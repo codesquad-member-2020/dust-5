@@ -36,8 +36,18 @@ class DustViewController: UIViewController, CLLocationManagerDelegate {
             self.tableView.measuredHistory = data
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.setFirstCellData()
             }
         }
+    }
+    
+    func setFirstCellData() {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TimelineTableViewCell else { return }
+        guard let state = cell.dustState else { return }
+        guard let measuredTime = cell.measuredTime else { return }
+        guard let measuredPlace = cell.measuredPlace else { return }
+        guard let statusView = statusView else { return }
+        statusView.setUpData(state: state, measuredTime: measuredTime, measuredPlace: measuredPlace)
     }
 }
 
