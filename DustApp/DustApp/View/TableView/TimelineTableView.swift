@@ -10,7 +10,7 @@ import UIKit
 
 class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
-    var figure = [0.8, 0.2, 0.3, 0.5, 0.1, 0.7, 0.9, 0.2, 0.3, 0.5, 0.1, 0.7, 0.9, 0.2, 0.3, 0.5, 0.1, 0.7, 0.9, 0.2, 0.3, 0.5, 0.1, 0.7]
+    var measuredHistory: MeasuredHistory?
     
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -26,14 +26,16 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return figure.count
+        return measuredHistory?.contents.forecast.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
-        cell.setConstraint(percentage: CGFloat(figure[indexPath.row]))
+        guard let cellData = measuredHistory?.contents.forecast[indexPath.row] else { return cell }
+        let percent = Int(cellData.pm10Value)! / 200
+        cell.setConstraint(percentage: CGFloat(percent))
         cell.measuredBar.backgroundColor = .blue
-        cell.measuredValue.text = "\(figure[indexPath.row])"
+//        cell.measuredValue.text = "\(figure[indexPath.row])"
         //여기서 각 셀마다 컬러 변경 필요
         return cell
     }
