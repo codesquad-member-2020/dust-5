@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class DustViewController: UIViewController, CLLocationManagerDelegate {
-    @IBOutlet var gradientView: StatusView!
+    @IBOutlet var statusView: StatusView!
     @IBOutlet var tableView: TimelineTableView!
     
     var locationManager: LocationManager!
@@ -20,6 +20,7 @@ class DustViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         locationManager = LocationManager()
         requestQueryWithCoordinate()
+        tableView.statusView = statusView
     }
     
     func requestQueryWithCoordinate() {

@@ -12,6 +12,7 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     
     var measuredHistory: MeasuredHistory?
     var grade: DustGrade?
+    var statusView: StatusView?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -31,7 +32,11 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
-        guard let cellData = measuredHistory?.contents.forecast[indexPath.row] else { return cell }
+        guard let cellContents = measuredHistory?.contents else { return cell }
+        let cellData = cellContents.forecast[indexPath.row]
+        //측정 날짜시간 중 시간만 추출 필요
+        cell.measuredTime = cellData.dataTime
+        cell.measuredPlace = cellContents.station
         guard let pm10Value = Double(cellData.pm10Value) else { return cell }
         let percent = pm10Value / 200.0
         cell.setConstraint(percentage: CGFloat(percent))
@@ -44,7 +49,8 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let cell = self.visibleCells.first as? TimelineTableViewCell, let state = cell.dustState else { return }
+        guard let cell = self.visibleCells.first as? TimelineTableViewCell, let state = cell.dustState, let measuredTime = cell.measuredTime, let measuredPlace = cell.measuredPlace, let statusView = statusView else { return }
+        statusView.setUpData(state: state, measuredTime: measuredTime, measuredPlace: measuredPlace)
     }
     
     func measureDustGrade(measuredValue: Int) -> DustState? {

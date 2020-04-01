@@ -246,7 +246,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="smoke.fill" selectedImage="smoke.fill" id="2OA-3d-Wxe"/>
                     <connections>
-                        <outlet property="gradientView" destination="JAx-CW-dld" id="eF5-dx-TaI"/>
+                        <outlet property="statusView" destination="JAx-CW-dld" id="eF5-dx-TaI"/>
                         <outlet property="tableView" destination="JJA-xm-KbH" id="u43-hc-MW3"/>
                     </connections>
                 </viewController>
