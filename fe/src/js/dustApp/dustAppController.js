@@ -26,9 +26,7 @@ class DustAppController {
         this.checkExistPrevDustData();
         if (this.checkDustDataUpdateTime()) return;
 
-        const stationInfoApiUrl = await this.dustAppModel.getStationInfoApiUrl(position);
-        const dustInfoApiUrl = await this.dustAppModel.getDustInfoApiUrl(stationInfoApiUrl);
-        await this.dustAppModel.getDustData(dustInfoApiUrl);
+        await this.dustAppModel.getDustData(position);
         this.updateDustAppView();
     }
 
