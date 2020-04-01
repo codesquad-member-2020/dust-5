@@ -31,19 +31,22 @@ const DUST_APP_RULE = {
             GOOD: '좋음',
             NORMAL: '보통',
             BAD: '나쁨',
-            VERY_BAD: '매우 나쁨'
+            VERY_BAD: '매우 나쁨',
+            ERROR: '해당 데이터가 없습니다.',
         },
         ICON: {
             GOOD: '😄',
             NORMAL: '🙂',
             BAD: '😷',
-            VERY_BAD: '😡'
+            VERY_BAD: '😡',
+            ERROR: '🤔',
         },
         COLOR: {
             GOOD: '#32a1ff',
             NORMAL: '#00c73c',
             BAD: '#fd9b5a',
-            VERY_BAD: '#ff5959'
+            VERY_BAD: '#ff5959',
+            ERROR: '#a9a9a9',
         }
     },
     BASE_COLOR: '#fff',

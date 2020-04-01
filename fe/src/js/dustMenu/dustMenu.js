@@ -22,10 +22,10 @@ class DustMenu {
     }
 
     getContentsMenuList() {
-        const firstContentStyle = `style="background-color: ${DUST_MENU_RULE.SELECTED_MENU_COLOR};"`
+        const selectedMenuStyle = `style="background-color: ${DUST_MENU_RULE.SELECTED_MENU_COLOR};"`
         return [...this.dustContentsWrap.children].reduce((acc, content, index) => {
             if (index === 0) this.currSelectContent = content.getAttribute('data-type');
-            acc += `<li ${index === 0 ? firstContentStyle : ''} data-type="${content.getAttribute('data-type')}">${content.getAttribute('data-name')}</li>`;
+            acc += `<li ${index === 0 ? selectedMenuStyle : ''} data-type="${content.getAttribute('data-type')}">${content.getAttribute('data-name')}</li>`;
             return acc;
         }, '');
     }

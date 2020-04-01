@@ -71,6 +71,11 @@ class DustAppView {
                 this.dustStateIconEl.innerHTML = DUST_APP_RULE.GRADE.ICON.VERY_BAD;
             }
                 break;
+            default: {
+                this.dustStateTextEl.innerHTML = DUST_APP_RULE.GRADE.TEXT.ERROR;
+                this.dustStateIconEl.innerHTML = DUST_APP_RULE.GRADE.ICON.ERROR;
+            }
+                break;
         }
     }
 
@@ -92,6 +97,7 @@ class DustAppView {
             case DUST_APP_RULE.GRADE.VALUE.NORMAL: return DUST_APP_RULE.GRADE.COLOR.NORMAL;
             case DUST_APP_RULE.GRADE.VALUE.BAD: return DUST_APP_RULE.GRADE.COLOR.BAD;
             case DUST_APP_RULE.GRADE.VALUE.VERY_BAD: return DUST_APP_RULE.GRADE.COLOR.VERY_BAD;
+            default: return DUST_APP_RULE.GRADE.COLOR.ERROR;
         }
     }
 
