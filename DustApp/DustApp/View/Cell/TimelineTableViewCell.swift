@@ -12,6 +12,7 @@ class TimelineTableViewCell: UITableViewCell {
 
     @IBOutlet var measuredValue: UILabel!
     @IBOutlet var measuredBar: UIView!
+    var dustState: DustState?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

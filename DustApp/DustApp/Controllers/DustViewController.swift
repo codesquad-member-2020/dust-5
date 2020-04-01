@@ -20,15 +20,16 @@ class DustViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: LocationManager!
     let dustNetworkManager = Dust24NetworkManager()
-    var measuredValue:Int = 67
+//    var measuredValue:Int = 67
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = LocationManager()
         
         requestQueryWithCoordinate()
-        let state = measureDustGrade(measuredValue: measuredValue)
-        inputUIValues(state: state)
+        
+//        let state = measureDustGrade(measuredValue: measuredValue)
+//        inputUIValues(state: state)
         
     }
     
@@ -69,15 +70,15 @@ class DustViewController: UIViewController, CLLocationManagerDelegate {
         statusValueLabel.text = "\(measuredValue)"
     }
     
-    func measureDustGrade(measuredValue: Int) -> DustState {
-        let grade = DustGrade(measuredValue)
-        return grade.gradeDustState(measuredValue: measuredValue)
-    }
+//    func measureDustGrade(measuredValue: Int) -> DustState {
+//        let grade = DustGrade(measuredValue)
+//        return grade.gradeDustState(measuredValue: measuredValue)
+//    }
     
     func inputUIValues(state: DustState) {
         makeGradientView(gradientColor: state.gradientColor)
         inputStatusImage(stateEmoji: state.stateEmoji)
         inputStatusLabel(state: state.state)
-        inputStatusValueLabel(measuredValue: measuredValue)
+//        inputStatusValueLabel(measuredValue: measuredValue)
     }
 }

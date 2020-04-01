@@ -11,7 +11,7 @@ import UIKit
 class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     var measuredHistory: MeasuredHistory?
-    
+    var grade: DustGrade?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -35,9 +35,11 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
         guard let pm10Value = Double(cellData.pm10Value) else { return cell }
         let percent = pm10Value / 200.0
         cell.setConstraint(percentage: CGFloat(percent))
-        cell.measuredBar.backgroundColor = .blue
         cell.measuredValue.text = "\(Int(pm10Value))"
-        //여기서 각 셀마다 컬러 변경 필요
+        cell.dustState = measureDustGrade(measuredValue: Int(pm10Value))
+        guard let backgroundColor = cell.dustState?.color else { return cell }
+        cell.measuredBar.backgroundColor = backgroundColor
+
         return cell
     }
     
@@ -47,5 +49,10 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
         }
     }
     
+    func measureDustGrade(measuredValue: Int) -> DustState? {
+           grade = DustGrade(measuredValue)
+        return grade?.gradeDustState(measuredValue: measuredValue)
+       }
+       
     
 }

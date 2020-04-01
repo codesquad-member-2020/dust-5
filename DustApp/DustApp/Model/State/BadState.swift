@@ -13,6 +13,7 @@ struct BadState: DustState {
     var measureValue: Int
     var state: String = "나쁨"
     var stateEmoji: UIImage = #imageLiteral(resourceName: "bad")
+    var color: UIColor = .orange
     var gradientColor: [Any] = [
         UIColor(red: 1, green: 0.6, blue: 0, alpha: 1).cgColor,
         UIColor(red: 1, green: 0.6, blue: 0, alpha: 0.2).cgColor,
