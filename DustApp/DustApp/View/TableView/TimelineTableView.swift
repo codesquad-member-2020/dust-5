@@ -32,10 +32,11 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
         guard let cellData = measuredHistory?.contents.forecast[indexPath.row] else { return cell }
-        let percent = Int(cellData.pm10Value)! / 200
+        guard let pm10Value = Double(cellData.pm10Value) else { return cell }
+        let percent = pm10Value / 200.0
         cell.setConstraint(percentage: CGFloat(percent))
         cell.measuredBar.backgroundColor = .blue
-//        cell.measuredValue.text = "\(figure[indexPath.row])"
+        cell.measuredValue.text = "\(Int(pm10Value))"
         //여기서 각 셀마다 컬러 변경 필요
         return cell
     }

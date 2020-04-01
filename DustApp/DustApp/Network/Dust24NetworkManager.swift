@@ -23,11 +23,11 @@ class Dust24NetworkManager {
         return url
     }
     
-    func request24DustData(urlWithQuery: URL) {
+    func request24DustData(urlWithQuery: URL, handler: @escaping (MeasuredHistory) -> ()) {
         urlDataTask.request(url: urlWithQuery, methodType: .get) { result in
             switch result {
             case .success(let anyData):
-                print(anyData)
+                handler(anyData as! MeasuredHistory)
             case .failure(let error):
                 //추후 에러 핸들링 방법 추가하기
                 print(error.localizedDescription)

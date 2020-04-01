@@ -41,7 +41,12 @@ class DustViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func request24DustDate(url: URL) {
-        dustNetworkManager.request24DustData(urlWithQuery: url)
+        dustNetworkManager.request24DustData(urlWithQuery: url) { data in
+            self.tableView.measuredHistory = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func makeGradientView(gradientColor: [Any]) {
