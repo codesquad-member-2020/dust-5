@@ -9,6 +9,14 @@ const LOCAL_STORAGE_KEY = {
     DUST_STATION: 'DUST_STATION',
 }
 
+const COMMON_RULE = {
+    ACTIVE_KEY: 'active',
+}
+
+const DUST_MENU_RULE = {
+    SELECTED_MENU_COLOR: '#c3e4fd',
+}
+
 const DUST_APP_RULE = {
     UPDATE_MINUTE: 15,
     DATA_TIME_LENGTH: 11,
@@ -23,19 +31,22 @@ const DUST_APP_RULE = {
             GOOD: '좋음',
             NORMAL: '보통',
             BAD: '나쁨',
-            VERY_BAD: '매우 나쁨'
+            VERY_BAD: '매우 나쁨',
+            ERROR: '측정 데이터가 없습니다.',
         },
         ICON: {
             GOOD: '😄',
             NORMAL: '🙂',
             BAD: '😷',
-            VERY_BAD: '😡'
+            VERY_BAD: '😡',
+            ERROR: '🤔',
         },
         COLOR: {
             GOOD: '#32a1ff',
             NORMAL: '#00c73c',
             BAD: '#fd9b5a',
-            VERY_BAD: '#ff5959'
+            VERY_BAD: '#ff5959',
+            ERROR: '#a9a9a9',
         }
     },
     BASE_COLOR: '#fff',
@@ -44,6 +55,8 @@ const DUST_APP_RULE = {
 
 export {
     ALERT_MESSAGE,
-    DUST_APP_RULE,
     LOCAL_STORAGE_KEY,
+    COMMON_RULE,
+    DUST_MENU_RULE,
+    DUST_APP_RULE,
 };
