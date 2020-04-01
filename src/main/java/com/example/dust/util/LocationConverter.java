@@ -80,7 +80,7 @@ public class LocationConverter {
     List<CoordinateData> documents = objectMapper.readValue(responseFromOpenApi, Coordinate.class).getDocuments();
     log.info("### documents.get(0): {}", documents.get(0));
 
-    Map<String, @NotBlank String> tmMap = new HashMap<>();
+    Map<String, String> tmMap = new HashMap<>();
     tmMap.put("tmX", documents.get(0).getX());
     tmMap.put("tmY", documents.get(0).getY());
 
