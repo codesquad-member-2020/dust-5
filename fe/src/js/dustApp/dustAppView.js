@@ -11,6 +11,11 @@ class DustAppView {
         this.dustTimelineGraph = null;
     }
 
+    init() {
+        this.render();
+        this.setViewElements();
+    }
+
     render() {
         getElement('.dust-wrap').innerHTML +=
             `<div class="dust-app-wrap active">
@@ -26,7 +31,6 @@ class DustAppView {
                     <ul class="dust-app-timeline-graph"></ul>
                 </div>
             </div>`;
-        this.setViewElements();
     }
 
     setViewElements() {

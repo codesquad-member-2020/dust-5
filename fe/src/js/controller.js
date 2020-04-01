@@ -8,7 +8,12 @@ class Controller {
     }
 
     runDustApp() {
-        this.dustAppView.render();
+        this.dustAppModel.init();
+        this.dustAppView.init();
+        this.traceUserLocation();
+    }
+
+    traceUserLocation() {
         if (navigator.geolocation) {
             navigator.geolocation
                 .getCurrentPosition(this.findLocationSuccess.bind(this), this.findLocationFailure, { enableHighAccuracy: true, maximumAge: 0, timeout: Infinity });
