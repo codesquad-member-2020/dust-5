@@ -33,10 +33,14 @@ class StatusView: UIView {
     }
     
     func setUpData(state: DustState, measuredTime: String, measuredPlace: String) {
+        let start = String.Index(encodedOffset: 10)
+        let end = measuredTime.index(before: measuredTime.endIndex)
+        let substring = measuredTime[start...end]
+        
         statusImage.image = state.stateEmoji
         statusGrade.text = state.state
         statusValue.text = "\(state.measureValue)"
-        statusTime.text = measuredTime
+        statusTime.text = String(substring)
         statusPlace.text = measuredPlace
         makeGradientView(gradientColor: state.gradientColor)
     }

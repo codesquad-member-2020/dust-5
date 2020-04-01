@@ -123,8 +123,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강남구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VP1-kH-2bm">
+                                        <rect key="frame" x="151" y="315" width="47" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="측정소 기준" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-Gw-xh2">
-                                        <rect key="frame" x="218" y="315" width="82.5" height="21.5"/>
+                                        <rect key="frame" x="206" y="315" width="82.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -136,12 +142,6 @@
                                             <constraint firstAttribute="height" constant="150" id="UPI-cj-3WW"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE7-D3-pXn">
-                                        <rect key="frame" x="81" y="261" width="43" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-tW-FII">
                                         <rect key="frame" x="218" y="277" width="44" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -160,9 +160,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강남구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VP1-kH-2bm">
-                                        <rect key="frame" x="151" y="315" width="47" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE7-D3-pXn">
+                                        <rect key="frame" x="81" y="277" width="43" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -182,9 +182,9 @@
                                     <constraint firstItem="zVw-oX-Jfo" firstAttribute="centerX" secondItem="JAx-CW-dld" secondAttribute="centerX" id="YSK-QR-PvA"/>
                                     <constraint firstItem="i9H-tW-FII" firstAttribute="centerY" secondItem="wE7-D3-pXn" secondAttribute="centerY" id="ac8-bF-z6q"/>
                                     <constraint firstItem="z5h-Gw-xh2" firstAttribute="top" secondItem="i9H-tW-FII" secondAttribute="bottom" constant="8" id="ajM-Br-4fq"/>
-                                    <constraint firstItem="z5h-Gw-xh2" firstAttribute="leading" secondItem="i9H-tW-FII" secondAttribute="leading" id="anO-im-xPb"/>
                                     <constraint firstItem="01w-it-dg0" firstAttribute="centerX" secondItem="JAx-CW-dld" secondAttribute="centerX" id="cA5-AY-l6V"/>
                                     <constraint firstItem="cMo-bq-rda" firstAttribute="leading" secondItem="wE7-D3-pXn" secondAttribute="trailing" constant="8" id="cwD-gd-ao4"/>
+                                    <constraint firstItem="z5h-Gw-xh2" firstAttribute="leading" secondItem="VP1-kH-2bm" secondAttribute="trailing" constant="8" id="hmL-1O-Il0"/>
                                     <constraint firstItem="nrK-5T-D60" firstAttribute="leading" secondItem="i9H-tW-FII" secondAttribute="trailing" constant="8" id="jm7-k2-5kD"/>
                                     <constraint firstItem="VP1-kH-2bm" firstAttribute="centerY" secondItem="z5h-Gw-xh2" secondAttribute="centerY" id="pvx-t2-Uuc"/>
                                 </constraints>
