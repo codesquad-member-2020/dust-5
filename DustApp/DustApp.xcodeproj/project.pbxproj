@@ -69,6 +69,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3007178224348DE200D3157D /* State */ = {
+			isa = PBXGroup;
+			children = (
+				30B0AB532431C79100CE9727 /* GoodState.swift */,
+				30B0AB552431C8C300CE9727 /* NormalState.swift */,
+				30B0AB572431C96500CE9727 /* BadState.swift */,
+				30B0AB592431C9AC00CE9727 /* WorstState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 		301223C4243352FF00BB712C /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,10 +146,7 @@
 		30B0AB4D2431A4A000CE9727 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				30B0AB532431C79100CE9727 /* GoodState.swift */,
-				30B0AB552431C8C300CE9727 /* NormalState.swift */,
-				30B0AB572431C96500CE9727 /* BadState.swift */,
-				30B0AB592431C9AC00CE9727 /* WorstState.swift */,
+				3007178224348DE200D3157D /* State */,
 				30B0AB5D2431CE8B00CE9727 /* DustGrade.swift */,
 				30B6F4C3243227C00059B7F4 /* MeasuredHistory.swift */,
 				301223CB243363D800BB712C /* Coordinate.swift */,
