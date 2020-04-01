@@ -21,10 +21,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
-    func findCoordinate() -> (latitude: CLLocationDegrees?, longitude: CLLocationDegrees?){
+    func findCoordinate() -> (latitude: Double, longitude: Double){
         let coordinate = locationManager.location?.coordinate
-        let latitude = coordinate?.latitude
-        let longitude = coordinate?.longitude
+        guard let latitude = coordinate?.latitude, let longitude = coordinate?.longitude else { return (0, 0) }
         
         return (latitude, longitude)
     }

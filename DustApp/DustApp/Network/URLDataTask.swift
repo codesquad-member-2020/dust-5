@@ -16,8 +16,7 @@ class URLDataTask {
         case delete = "DELETE"
     }
     
-    func request(url: String, methodType: HTTPMethod, body: Data? = nil, completion: @escaping(Result<Any, NetworkError>) -> Void) {
-        guard let url = URL(string: url) else { return  }
+    func request(url: URL, methodType: HTTPMethod, body: Data? = nil, completion: @escaping(Result<Any, NetworkError>) -> Void) {
         
         var request = URLRequest(url: url)
         request.httpMethod = methodType.rawValue
