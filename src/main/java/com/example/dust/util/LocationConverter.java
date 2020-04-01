@@ -4,6 +4,7 @@ import com.example.dust.bean.Coordinate;
 import com.example.dust.bean.CoordinateData;
 import com.example.dust.bean.Station;
 import com.example.dust.bean.StationData;
+import com.example.dust.message.ErrorMessages;
 import com.example.dust.metadata.ApiKey;
 import com.example.dust.metadata.ApiParams;
 import com.example.dust.metadata.ApiUrl;
@@ -11,6 +12,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.validation.ConstraintViolationException;
+import javax.validation.constraints.NotBlank;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +57,7 @@ public class LocationConverter {
 
   /**
    * Feat : WGS84 좌표를 TM 좌표로 전환
-   * Desc :
+   * Desc : Kakao 좌표변환 API 를 사용합니다.
    * Return : Map<String, String> 로 tmX, tmY 가 파라미터로 있습니다.
    */
   private static Map<String, String> transferCoordinationType(String x, String y) throws Exception {
@@ -77,9 +80,14 @@ public class LocationConverter {
     List<CoordinateData> documents = objectMapper.readValue(responseFromOpenApi, Coordinate.class).getDocuments();
     log.info("### documents.get(0): {}", documents.get(0));
 
-    Map<String, String> tmMap = new HashMap<>();
+    Map<String, @NotBlank String> tmMap = new HashMap<>();
     tmMap.put("tmX", documents.get(0).getX());
     tmMap.put("tmY", documents.get(0).getY());
+
+    if (tmMap.get("tmX").equals("NaN") || tmMap.get("tmY").equals("NaN")) {
+      log.info("### ERROR: {}", ErrorMessages.TRANSFER_COORDINATION_TYPE);
+      throw new ConstraintViolationException(ErrorMessages.TRANSFER_COORDINATION_TYPE, null);
+    }
 
     return tmMap;
   }
