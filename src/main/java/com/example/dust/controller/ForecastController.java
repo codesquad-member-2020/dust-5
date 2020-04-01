@@ -53,11 +53,12 @@ public class ForecastController {
   public ResponseEntity<ApiResponse> dustStatus(@RequestParam String x, @RequestParam String y) throws Exception {
     log.info("### info dustStatus");
 
+    String stationName = LocationConverter.getStation(x, y);
     URL url = new URL(ApiUrl.DUST_STATUS + "?"
                       + ApiParams.FORECAST_SERVICE_KEY + "&"
                       + ApiParams.NUM_OF_ROWS + "&"
                       + ApiParams.PAGE_NO + "&"
-                      + ApiParams.STATION_NAME + LocationConverter.getStation(x, y) + "&"
+                      + ApiParams.STATION_NAME + stationName + "&"
                       + ApiParams.DATA_TERM + "&"
                       + ApiParams.VERSION + "&"
                       + ApiParams.RETURN_TYPE_JSON
@@ -69,6 +70,6 @@ public class ForecastController {
 
     String responseFromOpenApi = ConnectionUtil.getResponseFromOpenAPi(url);
     List<DustStatusData> dustStatus = objectMapper.readValue(responseFromOpenApi, DustStatus.class).getList();
-    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, dustStatus), HttpStatus.OK);
+    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, stationName, dustStatus), HttpStatus.OK);
   }
 }
