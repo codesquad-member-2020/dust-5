@@ -71,7 +71,7 @@ public class ForecastController {
                       + ApiParams.VERSION + "&"
                       + ApiParams.RETURN_TYPE_JSON
     );
-    log.info("### URL: {}", url);
+    log.info("### dustStatus URL: {}", url);
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
