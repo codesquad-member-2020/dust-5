@@ -1,9 +1,7 @@
 package com.example.dust.metadata;
 
-import java.time.LocalDate;
-
 public class ApiParams {
-  public static final String FORECAST_SERVICE_KEY = "ServiceKey=" + ApiKey.FORECAST_KEY;
+  public static final String FORECAST_SERVICE_KEY = "ServiceKey="; // + ApiKey.FORECAST_KEY;
   public static final String STATION_SERVICE_KEY = "ServiceKey=" + ApiKey.STATION_SEARCH_KEY;
 
   public static final String RETURN_TYPE_JSON = "_returnType=json";
