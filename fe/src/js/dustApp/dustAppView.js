@@ -17,8 +17,8 @@ class DustAppView {
     }
 
     render() {
-        getElement('.dust-wrap').innerHTML +=
-            `<div class="dust-app-wrap active">
+        getElement('.dust-contents-wrap').innerHTML +=
+            `<div class="dust-app-wrap" data-name="미세먼지" data-type="dust-app-content">
                 <div class="dust-app-state-wrap">
                     <h2 class="dust-app-title">미세먼지 앱</h2>
                     <div class="dust-app-state-icon">🤔</div>
