@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -55,12 +53,11 @@ public class ForecastController {
   public ResponseEntity<ApiResponse> dustStatus(@RequestParam String x, @RequestParam String y) throws Exception {
     log.info("### info dustStatus");
 
-    String forecastStation = LocationConverter.getStation(x, y);
     URL url = new URL(ApiUrl.DUST_STATUS + "?"
                       + ApiParams.FORECAST_SERVICE_KEY + "&"
                       + ApiParams.NUM_OF_ROWS + "&"
                       + ApiParams.PAGE_NO + "&"
-                      + ApiParams.STATION_NAME + forecastStation + "&"
+                      + ApiParams.STATION_NAME + LocationConverter.getStation(x, y) + "&"
                       + ApiParams.DATA_TERM + "&"
                       + ApiParams.VERSION + "&"
                       + ApiParams.RETURN_TYPE_JSON
@@ -72,11 +69,6 @@ public class ForecastController {
 
     String responseFromOpenApi = ConnectionUtil.getResponseFromOpenAPi(url);
     List<DustStatusData> dustStatus = objectMapper.readValue(responseFromOpenApi, DustStatus.class).getList();
-
-    Map<String, Object> responseContent = new HashMap<>();
-    responseContent.put("station", forecastStation);
-    responseContent.put("forecast", dustStatus);
-
-    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, responseContent), HttpStatus.OK);
+    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, dustStatus), HttpStatus.OK);
   }
 }
