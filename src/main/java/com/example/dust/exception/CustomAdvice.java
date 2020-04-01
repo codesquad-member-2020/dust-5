@@ -1,6 +1,7 @@
 package com.example.dust.exception;
 
 import com.example.dust.bean.ApiResponse;
+import com.example.dust.message.ErrorMessages;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,10 +13,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class CustomAdvice {
 
-  @ExceptionHandler(BaseException.class)
-  @ResponseStatus(HttpStatus.FORBIDDEN)
+  @ExceptionHandler(Exception.class)
+  @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
   @ResponseBody
-  public ApiResponse handleError(BaseException base) {
-    return base.returnErrorMessage();
+  public ApiResponse handleError() {
+    return new ApiResponse(ErrorMessages.ERROR, "공공API 문제");
   }
 }
