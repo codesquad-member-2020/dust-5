@@ -39,20 +39,18 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
         cell.dustState = measureDustGrade(measuredValue: Int(pm10Value))
         guard let backgroundColor = cell.dustState?.color else { return cell }
         cell.measuredBar.backgroundColor = backgroundColor
-
+        
         return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let cell = self.visibleCells.first as? TimelineTableViewCell {
-            //여기서 셀이 가진 데이터 가져와서 뷰컨의 라벨들에게 뿌려줘야함..
-        }
+        guard let cell = self.visibleCells.first as? TimelineTableViewCell, let state = cell.dustState else { return }
     }
     
     func measureDustGrade(measuredValue: Int) -> DustState? {
-           grade = DustGrade(measuredValue)
+        grade = DustGrade(measuredValue)
         return grade?.gradeDustState(measuredValue: measuredValue)
-       }
-       
+    }
+    
     
 }
