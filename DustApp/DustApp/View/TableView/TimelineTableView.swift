@@ -10,8 +10,9 @@ import UIKit
 
 class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
-    var figure = [0.8, 0.2, 0.3, 0.5, 0.1, 0.7, 0.9, 0.2, 0.3, 0.5, 0.1, 0.7, 0.9, 0.2, 0.3, 0.5, 0.1, 0.7, 0.9, 0.2, 0.3, 0.5, 0.1, 0.7]
-    
+    var measuredHistory: MeasuredHistory?
+    var grade: DustGrade?
+    var statusView: StatusView?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -26,22 +27,35 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return figure.count
+        return measuredHistory?.contents.forecast.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
-        cell.setConstraint(percentage: CGFloat(figure[indexPath.row]))
-        cell.measuredBar.backgroundColor = .blue
-        cell.measuredValue.text = "\(figure[indexPath.row])"
-        //여기서 각 셀마다 컬러 변경 필요
+        guard let cellContents = measuredHistory?.contents else { return cell }
+        let cellData = cellContents.forecast[indexPath.row]
+        //측정 날짜시간 중 시간만 추출 필요
+        cell.measuredTime = cellData.dataTime
+        cell.measuredPlace = cellContents.station
+        guard let pm10Value = Double(cellData.pm10Value) else { return cell }
+        let percent = pm10Value / 200.0
+        cell.setConstraint(percentage: CGFloat(percent))
+        cell.measuredValue.text = "\(Int(pm10Value))"
+        cell.dustState = measureDustGrade(measuredValue: Int(pm10Value))
+        guard let backgroundColor = cell.dustState?.color else { return cell }
+        cell.measuredBar.backgroundColor = backgroundColor
+        
         return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let cell = self.visibleCells.first as? TimelineTableViewCell {
-            //여기서 셀이 가진 데이터 가져와서 뷰컨의 라벨들에게 뿌려줘야함..
-        }
+        guard let cell = self.visibleCells.first as? TimelineTableViewCell, let state = cell.dustState, let measuredTime = cell.measuredTime, let measuredPlace = cell.measuredPlace, let statusView = statusView else { return }
+        statusView.setUpData(state: state, measuredTime: measuredTime, measuredPlace: measuredPlace)
+    }
+    
+    func measureDustGrade(measuredValue: Int) -> DustState? {
+        grade = DustGrade(measuredValue)
+        return grade?.gradeDustState(measuredValue: measuredValue)
     }
     
     

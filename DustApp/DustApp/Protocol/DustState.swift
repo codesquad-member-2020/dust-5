@@ -13,5 +13,6 @@ protocol DustState {
     var measureValue: Int { get set }
     var state: String { get set }
     var stateEmoji: UIImage { get set }
+    var color: UIColor { get set }
     var gradientColor: [Any] { get set }
 }

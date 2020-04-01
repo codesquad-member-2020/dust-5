@@ -9,6 +9,18 @@
 import Foundation
 
 struct MeasuredHistory: Codable {
-    var pm10Value24: String
-    var dataTime: String
+    var status: String
+    var contents: Contents
+    
+    struct Contents: Codable {
+        var station: String
+        var forecast: [DustData]
+    }
+    
+    struct DustData: Codable {
+        var dataTime: String
+        var pm10Grade1h: String
+        var pm10Value: String
+    }
+    
 }

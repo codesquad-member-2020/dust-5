@@ -7,54 +7,47 @@
 //
 
 import UIKit
+import CoreLocation
 
-class DustViewController: UIViewController {
-    @IBOutlet var gradientView: UIView!
-    @IBOutlet var statusImage: UIImageView!
-    @IBOutlet var statusLabel: UILabel!
-    @IBOutlet var statusValueLabel: UILabel!
-    @IBOutlet var measureTimeLabel: UILabel!
-    @IBOutlet var measurePlaceLabel: UILabel!
-    
-    //서버에서 받아올 데이터 = [측정값, 측정시각, 측정소(현재 위치 좌표 넘겨야함) ]
-    var measuredValue:Int = 67
+class DustViewController: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet var statusView: StatusView!
     @IBOutlet var tableView: TimelineTableView!
+    
+    var locationManager: LocationManager!
+    let dustNetworkManager = Dust24NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let state = measureDustGrade(measuredValue: measuredValue)
-        inputUIValues(state: state)
+        locationManager = LocationManager()
+        requestQueryWithCoordinate()
+        tableView.statusView = statusView
     }
     
-    func makeGradientView(gradientColor: [Any]) {
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.endPoint = CGPoint(x: 0.5, y: 1)
-        gradient.colors = gradientColor
-        gradientView.layer.insertSublayer(gradient, at: 0)
+    func requestQueryWithCoordinate() {
+        let coordinate = locationManager.findCoordinate()
+        
+        if let urlWithCoordinate = dustNetworkManager.makeRequest24DustQuery(latitude: coordinate.latitude, longitude: coordinate.longitude) {
+            request24DustDate(url: urlWithCoordinate)
+        }
     }
     
-    func inputStatusImage(stateEmoji: UIImage) {
-        statusImage.image = stateEmoji
+    func request24DustDate(url: URL) {
+        dustNetworkManager.request24DustData(urlWithQuery: url) { data in
+            self.tableView.measuredHistory = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.setFirstCellData()
+            }
+        }
     }
     
-    func inputStatusLabel(state: String) {
-        statusLabel.text = state
-    }
-    
-    func inputStatusValueLabel(measuredValue: Int) {
-        statusValueLabel.text = "\(measuredValue)"
-    }
-    
-    func measureDustGrade(measuredValue: Int) -> DustState {
-        let grade = DustGrade(measuredValue)
-        return grade.gradeDustState(measuredValue: measuredValue)
-    }
-    
-    func inputUIValues(state: DustState) {
-        makeGradientView(gradientColor: state.gradientColor)
-        inputStatusImage(stateEmoji: state.stateEmoji)
-        inputStatusLabel(state: state.state)
-        inputStatusValueLabel(measuredValue: measuredValue)
+    func setFirstCellData() {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TimelineTableViewCell else { return }
+        guard let state = cell.dustState else { return }
+        guard let measuredTime = cell.measuredTime else { return }
+        guard let measuredPlace = cell.measuredPlace else { return }
+        guard let statusView = statusView else { return }
+        statusView.setUpData(state: state, measuredTime: measuredTime, measuredPlace: measuredPlace)
     }
 }
+

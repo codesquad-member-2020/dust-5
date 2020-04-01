@@ -60,5 +60,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>앱을 사용중일때 위치정보를 가져오도록 허용하시겠습니까?</string>
 </dict>
 </plist>
