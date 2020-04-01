@@ -15,7 +15,8 @@ class StatusView: UIView {
     @IBOutlet var statusValue: UILabel!
     @IBOutlet var statusTime: UILabel!
     @IBOutlet var statusPlace: UILabel!
-    
+    let gradient = CAGradientLayer()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -25,7 +26,6 @@ class StatusView: UIView {
     }
     
     func makeGradientView(gradientColor: [Any]) {
-        let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.endPoint = CGPoint(x: 0.5, y: 1)
         gradient.colors = gradientColor
@@ -38,5 +38,6 @@ class StatusView: UIView {
         statusValue.text = "\(state.measureValue)"
         statusTime.text = measuredTime
         statusPlace.text = measuredPlace
+        makeGradientView(gradientColor: state.gradientColor)
     }
 }
