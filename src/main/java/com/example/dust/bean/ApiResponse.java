@@ -21,4 +21,9 @@ public class ApiResponse {
     this.status = status;
     this.contents = contents;
   }
+
+  public ApiResponse(String status, Map<String, Object> contents) {
+    this.status = status;
+    this.contents = contents;
+  }
 }
