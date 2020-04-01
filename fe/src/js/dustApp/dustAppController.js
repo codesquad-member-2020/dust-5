@@ -9,7 +9,6 @@ class DustAppController {
 
     runDustApp() {
         this.dustAppModel.init();
-        this.dustAppView.init();
         this.dustAppEventManager.init();
         this.traceUserLocation();
     }

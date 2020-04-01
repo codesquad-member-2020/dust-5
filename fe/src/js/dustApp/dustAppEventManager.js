@@ -17,6 +17,7 @@ class DustAppEventManager {
         this.dustAppView.dustTimelineGraph.addEventListener('touchmove', this.touchmoveHandle.bind(this));
         this.dustAppView.dustTimelineGraph.addEventListener('touchend', this.touchendHandle);
     }
+
     touchstartHandle(evt) {
         option.startPoint = evt.touches[0].clientY;
     }
