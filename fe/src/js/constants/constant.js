@@ -9,6 +9,14 @@ const LOCAL_STORAGE_KEY = {
     DUST_STATION: 'DUST_STATION',
 }
 
+const COMMON_RULE = {
+    ACTIVE_KEY: 'active',
+}
+
+const DUST_MENU_RULE = {
+    SELECTED_MENU_COLOR: '#c3e4fd',
+}
+
 const DUST_APP_RULE = {
     UPDATE_MINUTE: 15,
     DATA_TIME_LENGTH: 11,
@@ -44,6 +52,8 @@ const DUST_APP_RULE = {
 
 export {
     ALERT_MESSAGE,
-    DUST_APP_RULE,
     LOCAL_STORAGE_KEY,
+    COMMON_RULE,
+    DUST_MENU_RULE,
+    DUST_APP_RULE,
 };
