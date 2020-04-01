@@ -18,7 +18,9 @@ public class CustomAdvice {
   @ExceptionHandler(Exception.class)
   @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
   @ResponseBody
-  public ApiResponse handleError() {
+  public ApiResponse handleError(Exception e) {
+    log.info("### handleError : {}", e.getMessage());
+
     return new ApiResponse(ErrorMessages.ERROR, "공공API 문제");
   }
 
