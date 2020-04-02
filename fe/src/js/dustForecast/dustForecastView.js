@@ -13,7 +13,7 @@ class DustForecastView {
 
     render() {
         getElement('.dust-contents-wrap').innerHTML +=
-            `<div class="dust-forecast-wrap active" data-name="예보" data-type="dust-forecast-content">
+            `<div class="dust-forecast-wrap" data-name="예보" data-type="dust-forecast-content">
                 <h2 class="dust-forecast-title">미세먼지 예보</h2>
                 <div class="dust-forecast-image-set"></div>
                 <div class="dust-forecast-progress">
@@ -54,13 +54,15 @@ class DustForecastView {
         this.gradeText.innerHTML = gradeTextData[index];
     }
 
-    updateForecastView(option, index) {
-        if (index !== 0) {
-            this.barButton.style.transition = '0.5s linear';
-            removeClass(this.dustForecastImageSet.children[index - 1], COMMON_RULE.ACTIVE_KEY);
-        }
-        addClass(this.dustForecastImageSet.children[index], COMMON_RULE.ACTIVE_KEY);
-        this.barButton.style.left = option.imageRangeWidth * index + "px";
+    updateForecastImage(option) {
+        removeClass(this.dustForecastImageSet.children[option.prevIndex], COMMON_RULE.ACTIVE_KEY);
+        addClass(this.dustForecastImageSet.children[option.currIndex], COMMON_RULE.ACTIVE_KEY);
+    }
+
+    updateForecastBarButton(option) {
+        if (parseInt(this.barButton.style.left) > option.imageRangeWidth * option.currIndex) return;
+        if (option.currIndex !== 0) this.barButton.style.transition = '0.5s linear';
+        this.barButton.style.left = option.imageRangeWidth * option.currIndex + "px";
     }
 
     resetForecastView(option) {
@@ -68,6 +70,10 @@ class DustForecastView {
         this.barButton.style.left = '0px';
         removeClass(this.dustForecastImageSet.children[option.imagesLength - 1], COMMON_RULE.ACTIVE_KEY);
         addClass(this.dustForecastImageSet.children[option.currIndex], COMMON_RULE.ACTIVE_KEY);
+    }
+
+    clearTransition(target) {
+        target.style.transition = '0s step-start';
     }
 }
 

@@ -8,11 +8,6 @@ import DustForecastView from './dustForecast/dustForecastView.js';
 import DustForecastEventManager from './dustForecast/dustForecastEventManager.js';
 import DustForecastController from './dustForecast/dustForecastController.js';
 
-// import '../css/reset.css';
-// import '../css/common.css';
-// import '../css/dustApp.css';
-// import '../css/dustForecast.css';
-
 const dustMenu = new DustMenu();
 
 const dustAppModel = new DustAppModel();
@@ -26,10 +21,10 @@ const dustForecastEventManager = new DustForecastEventManager({ dustForecastMode
 const dustForecastController = new DustForecastController({ dustForecastModel, dustForecastView, dustForecastEventManager });
 
 function renderViews() {
-    dustForecastView.render();
     dustAppView.render();
-    dustForecastView.setViewElements();
+    dustForecastView.render();
     dustAppView.setViewElements();
+    dustForecastView.setViewElements();
     dustMenu.init();
 }
 
