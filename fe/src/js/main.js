@@ -1,17 +1,17 @@
 import DustMenu from './dustMenu/dustMenu.js';
-import DustAppController from './dustApp/dustAppController.js';
 import DustAppModel from './dustApp/dustAppModel.js';
 import DustAppView from './dustApp/dustAppView.js';
 import DustAppEventManager from './dustApp/dustAppEventManager.js';
-import DustForecastController from './dustForecast/dustForecastController.js';
+import DustAppController from './dustApp/dustAppController.js';
 import DustForecastModel from './dustForecast/dustForecastModel.js';
 import DustForecastView from './dustForecast/dustForecastView.js';
 import DustForecastEventManager from './dustForecast/dustForecastEventManager.js';
+import DustForecastController from './dustForecast/dustForecastController.js';
 
-import '../css/reset.css';
-import '../css/common.css';
-import '../css/dustApp.css';
-import '../css/dustForecast.css';
+// import '../css/reset.css';
+// import '../css/common.css';
+// import '../css/dustApp.css';
+// import '../css/dustForecast.css';
 
 const dustMenu = new DustMenu();
 
@@ -26,13 +26,15 @@ const dustForecastEventManager = new DustForecastEventManager({ dustForecastMode
 const dustForecastController = new DustForecastController({ dustForecastModel, dustForecastView, dustForecastEventManager });
 
 function renderViews() {
-    dustAppView.render();
     dustForecastView.render();
-    dustAppView.setViewElements();
+    dustAppView.render();
     dustForecastView.setViewElements();
+    dustAppView.setViewElements();
     dustMenu.init();
 }
 
-renderViews();
-dustAppController.runDustApp();
-dustForecastController.runDustForecast();
+(function main() {
+    renderViews();
+    dustAppController.runDustApp();
+    dustForecastController.runDustForecast();
+})();

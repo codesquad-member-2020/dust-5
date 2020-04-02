@@ -5,8 +5,9 @@ class DustForecastContoller {
         this.dustForecastEventManager = module.dustForecastEventManager;
     }
 
-    runDustForecast() {
-        this.injectDustForecastData();
+    async runDustForecast() {
+        await this.injectDustForecastData();
+        this.dustForecastEventManager.init();
     }
 
     async injectDustForecastData() {

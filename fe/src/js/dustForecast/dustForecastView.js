@@ -6,15 +6,18 @@ class DustForecastView {
         this.dustForecastImgSet = null;
         this.infoText = null;
         this.gradeText = null;
+        this.progressButton = null;
+        this.bar = null;
+        this.barButton = null;
     }
 
     render() {
         getElement('.dust-contents-wrap').innerHTML +=
-            `<div class="dust-forecast-wrap" data-name="예보" data-type="dust-forecast-content">
+            `<div class="dust-forecast-wrap active" data-name="예보" data-type="dust-forecast-content">
                 <h2 class="dust-forecast-title">미세먼지 예보</h2>
                 <div class="dust-forecast-img-set"></div>
                 <div class="dust-forecast-progress">
-                    <button class="progress-button">▶</button>
+                    <button class="progress-button">▶️</button>
                     <div class="progress-bar">
                         <div class="bar"></div>
                         <div class="bar-button"></div>
@@ -31,6 +34,9 @@ class DustForecastView {
         this.dustForecastImgSet = getElement('.dust-forecast-img-set');
         this.infoText = getElement('.info-text');
         this.gradeText = getElement('.grade-text');
+        this.progressButton = getElement('.progress-button');
+        this.bar = getElement('.progress-bar .bar');
+        this.barButton = getElement('.progress-bar .bar-button');
     }
 
     injectImgSet(imgData) {
