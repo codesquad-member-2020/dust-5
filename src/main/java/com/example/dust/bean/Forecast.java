@@ -15,12 +15,12 @@ public class Forecast {
   private List<ForecastData> list;
   private List<ForecastData> todayForecast = new ArrayList<>();
 
-  public List<ForecastData> getTodayForecast() {
+  public ForecastData getTodayForecast() {
     for (ForecastData forecastData: list) {
       if (forecastData.getInformData().equals(LocalDate.now().toString())) {
         todayForecast.add(forecastData);
       }
     }
-    return todayForecast;
+    return todayForecast.get(0);
   }
 }

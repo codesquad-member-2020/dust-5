@@ -42,7 +42,7 @@ public class ForecastController {
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     String responseFormOpenApi = ConnectionUtil.getResponseFromOpenAPi(url);
-    List<ForecastData> forecast = objectMapper.readValue(responseFormOpenApi, Forecast.class).getTodayForecast();
+    ForecastData forecast = objectMapper.readValue(responseFormOpenApi, Forecast.class).getTodayForecast();
     return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, forecast), HttpStatus.OK);
   }
 
