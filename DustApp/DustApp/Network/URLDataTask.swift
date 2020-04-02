@@ -31,12 +31,15 @@ class URLDataTask {
                 }
                 return
             }
-            
-            let decoder = JSONDecoder()
-            guard let anyData = try? decoder.decode(MeasuredHistory.self, from: data) else {
-                completion(.failure(.decodingError)); return }
-            completion(.success(anyData))
+            self.decode(data: data) { completion($0) }
         }
         task.resume()
+    }
+    
+    func decode(data: Data, completion: @escaping(Result<Any, NetworkError>) -> Void) {
+        let decoder = JSONDecoder()
+        guard let anyData = try? decoder.decode(MeasuredHistory.self, from: data) else {
+            completion(.failure(.decodingError)); return }
+        completion(.success(anyData))
     }
 }
