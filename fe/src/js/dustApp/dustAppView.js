@@ -23,7 +23,7 @@ class DustAppView {
                 </div>
 
                 <div class="dust-app-timeline-graph-wrap">
-                    <ul class="dust-app-timeline-graph"></ul>
+                    <ul title="모바일웹으로 변경 후 새로고침 해주세요! f12 -> ctrl + shift + m (Chrome)" class="dust-app-timeline-graph"></ul>
                 </div>
             </div>`;
     }

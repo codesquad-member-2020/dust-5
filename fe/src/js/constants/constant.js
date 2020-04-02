@@ -55,6 +55,16 @@ const DUST_APP_RULE = {
 
 const DUST_FORECAST_RULE = {
     IMAGE_CHANGE_INTERVAL: 500,
+    STATE: {
+        PLAY: {
+            STATE_TEXT: 'PLAY',
+            ICON: '👉',
+        },
+        PAUSE: {
+            STATE_TEXT: 'PAUSE',
+            ICON: '✊',
+        }
+    }
 }
 
 export {

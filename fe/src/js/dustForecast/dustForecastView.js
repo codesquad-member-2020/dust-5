@@ -1,9 +1,9 @@
-import { getElement } from '../util/commonUtil.js';
+import { getElement, addClass, removeClass } from '../util/commonUtil.js';
 import { COMMON_RULE } from '../constants/constant.js';
 
 class DustForecastView {
     constructor() {
-        this.dustForecastImgSet = null;
+        this.dustForecastImageSet = null;
         this.infoText = null;
         this.gradeText = null;
         this.progressButton = null;
@@ -15,12 +15,12 @@ class DustForecastView {
         getElement('.dust-contents-wrap').innerHTML +=
             `<div class="dust-forecast-wrap active" data-name="예보" data-type="dust-forecast-content">
                 <h2 class="dust-forecast-title">미세먼지 예보</h2>
-                <div class="dust-forecast-img-set"></div>
+                <div class="dust-forecast-image-set"></div>
                 <div class="dust-forecast-progress">
-                    <button class="progress-button">▶️</button>
+                    <button title="모바일웹으로 변경 후 새로고침 해주세요! f12 -> ctrl + shift + m (Chrome)" class="progress-button">👉</button>
                     <div class="progress-bar">
                         <div class="bar"></div>
-                        <div class="bar-button"></div>
+                        <div style="left: 0px;" class="bar-button"></div>
                     </div>
                 </div>
                 <div class="dust-forecast-info">
@@ -31,7 +31,7 @@ class DustForecastView {
     }
 
     setViewElements() {
-        this.dustForecastImgSet = getElement('.dust-forecast-img-set');
+        this.dustForecastImageSet = getElement('.dust-forecast-image-set');
         this.infoText = getElement('.info-text');
         this.gradeText = getElement('.grade-text');
         this.progressButton = getElement('.progress-button');
@@ -40,18 +40,34 @@ class DustForecastView {
     }
 
     injectImgSet(imgData) {
-        this.dustForecastImgSet.innerHTML = imgData.reduce((acc, imgUrl, index) => {
+        this.dustForecastImageSet.innerHTML = imgData.reduce((acc, imgUrl, index) => {
             acc += `<img class="${index === 0 ? COMMON_RULE.ACTIVE_KEY : ''}" src="${imgUrl}">`
             return acc;
         }, '');
     }
 
-    updateInfoText(infoTextData, index = 0) {
+    injectInfoText(infoTextData, index = 0) {
         this.infoText.innerHTML = infoTextData[index];
     }
 
-    updateGradeText(gradeTextData, index = 0) {
+    injectGradeText(gradeTextData, index = 0) {
         this.gradeText.innerHTML = gradeTextData[index];
+    }
+
+    updateForecastView(option, index) {
+        if (index !== 0) {
+            this.barButton.style.transition = '0.5s linear';
+            removeClass(this.dustForecastImageSet.children[index - 1], COMMON_RULE.ACTIVE_KEY);
+        }
+        addClass(this.dustForecastImageSet.children[index], COMMON_RULE.ACTIVE_KEY);
+        this.barButton.style.left = option.imageRangeWidth * index + "px";
+    }
+
+    resetForecastView(option) {
+        option.currIndex = 0;
+        this.barButton.style.left = '0px';
+        removeClass(this.dustForecastImageSet.children[option.imagesLength - 1], COMMON_RULE.ACTIVE_KEY);
+        addClass(this.dustForecastImageSet.children[option.currIndex], COMMON_RULE.ACTIVE_KEY);
     }
 }
 

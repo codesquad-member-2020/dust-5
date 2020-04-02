@@ -13,20 +13,20 @@
     text-align: center;
 }
 
-.dust-forecast-img-set {
+.dust-forecast-image-set {
     width: 90%;
     height: auto;
     margin: 0 auto;
     margin-bottom: 10px;
 }
 
-.dust-forecast-img-set img {
+.dust-forecast-image-set img {
     width: 100%;
     height: auto;
     display: none;
 }
 
-.dust-forecast-img-set img.active {
+.dust-forecast-image-set img.active {
     display: block;
 }
 

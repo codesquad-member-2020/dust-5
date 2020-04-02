@@ -13,8 +13,8 @@ class DustForecastContoller {
     async injectDustForecastData() {
         await this.dustForecastModel.getDustForecastData();
         this.dustForecastView.injectImgSet(this.dustForecastModel.forecastImages);
-        this.dustForecastView.updateInfoText(this.dustForecastModel.forecastInfoTexts);
-        this.dustForecastView.updateGradeText(this.dustForecastModel.forecastGradeTexts);
+        this.dustForecastView.injectInfoText(this.dustForecastModel.forecastInfoTexts);
+        this.dustForecastView.injectGradeText(this.dustForecastModel.forecastGradeTexts);
     }
 }
 
