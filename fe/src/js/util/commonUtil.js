@@ -14,9 +14,14 @@ function removeClass(target, className) {
     target.classList.remove(className);
 }
 
+function clearTransition(target) {
+    target.style.transition = '0s step-start';
+}
+
 export {
     getElement,
     getElements,
     addClass,
     removeClass,
+    clearTransition,
 }

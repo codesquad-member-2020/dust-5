@@ -71,10 +71,6 @@ class DustForecastView {
         removeClass(this.dustForecastImageSet.children[option.imagesLength - 1], COMMON_RULE.ACTIVE_KEY);
         addClass(this.dustForecastImageSet.children[option.currIndex], COMMON_RULE.ACTIVE_KEY);
     }
-
-    clearTransition(target) {
-        target.style.transition = '0s step-start';
-    }
 }
 
 export default DustForecastView;
