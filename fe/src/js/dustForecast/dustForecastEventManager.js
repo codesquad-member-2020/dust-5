@@ -1,3 +1,4 @@
+import { clearTransition } from '../util/commonUtil.js';
 import { DUST_FORECAST_RULE } from '../constants/constant.js';
 
 const option = {
@@ -41,7 +42,7 @@ class DustForecastEventManager {
                 option.state = DUST_FORECAST_RULE.STATE.PAUSE.STATE_TEXT;
                 this.dustForecastView.progressButton.innerHTML = DUST_FORECAST_RULE.STATE.PLAY.ICON;
                 clearTimeout(this.playSetTimeout);
-                this.dustForecastView.clearTransition(this.dustForecastView.barButton);
+                clearTransition(this.dustForecastView.barButton);
             }
                 break;
         }
@@ -54,6 +55,7 @@ class DustForecastEventManager {
         toLeft = Math.min(option.imageRangeWidth * (option.imagesLength - 1), Math.max(clientX, 0));
         target.style.left = toLeft + "px";
 
+        if (option.currIndex === option.imagesLength) option.currIndex--;
         option.prevIndex = option.currIndex;
         option.currIndex = parseInt(toLeft / option.imageRangeWidth);
         this.dustForecastView.updateForecastImage(option);
@@ -65,7 +67,7 @@ class DustForecastEventManager {
 
     playAnimation() {
         if (option.currIndex === option.imagesLength) {
-            this.dustForecastView.clearTransition(this.dustForecastView.barButton);
+            clearTransition(this.dustForecastView.barButton);
             setTimeout(this.resetAnimation.bind(this), DUST_FORECAST_RULE.IMAGE_CHANGE_INTERVAL);
             this.playSetTimeout = setTimeout(this.playAnimation.bind(this), DUST_FORECAST_RULE.IMAGE_CHANGE_INTERVAL);
             return;
