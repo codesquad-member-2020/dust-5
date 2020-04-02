@@ -17,10 +17,21 @@ class ForecastViewController: UIViewController {
     @IBOutlet var playSlider: UISlider!
     
     let forecastManager = ForecastNetworkManager()
+    private var isPlaying = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        forecastManager.requestForecastData { data in
+//        forecastManager.requestForecastData { data in
+//        }
+    }
+    
+    @IBAction func pressPlayButton(_ sender: UIButton) {
+        if !isPlaying {
+            playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            isPlaying = true
+        }else {
+            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            isPlaying = false
         }
     }
     
