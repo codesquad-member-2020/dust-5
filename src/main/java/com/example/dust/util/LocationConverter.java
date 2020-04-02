@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.validation.ConstraintViolationException;
-import javax.validation.constraints.NotBlank;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
