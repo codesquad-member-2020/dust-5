@@ -31,12 +31,27 @@ class URLDataTask {
                 }
                 return
             }
+            if url.absoluteString.contains("dust-status") {
+                self.decodeDustData(data: data) { completion($0) }
+            }else {
+                self.decodeForecastData(data: data) { completion($0) }
+            }
             
-            let decoder = JSONDecoder()
-            guard let anyData = try? decoder.decode(MeasuredHistory.self, from: data) else {
-                completion(.failure(.decodingError)); return }
-            completion(.success(anyData))
         }
         task.resume()
+    }
+    
+    func decodeDustData(data: Data, completion: @escaping(Result<Any, NetworkError>) -> Void) {
+        let decoder = JSONDecoder()
+        guard let anyData = try? decoder.decode(MeasuredHistory.self, from: data) else {
+            completion(.failure(.decodingError)); return }
+        completion(.success(anyData))
+    }
+    
+    func decodeForecastData(data: Data, completion: @escaping(Result<Any, NetworkError>) -> Void) {
+        let decoder = JSONDecoder()
+        guard let anyData = try? decoder.decode(Forecast.self, from: data) else {
+            completion(.failure(.decodingError)); return }
+        completion(.success(anyData))
     }
 }
