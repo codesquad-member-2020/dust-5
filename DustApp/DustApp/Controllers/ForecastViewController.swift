@@ -16,8 +16,12 @@ class ForecastViewController: UIViewController {
     @IBOutlet var playButton: UIButton!
     @IBOutlet var playSlider: UISlider!
     
+    let forecastManager = ForecastNetworkManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        forecastManager.requestForecastData { data in
+        }
     }
     
 

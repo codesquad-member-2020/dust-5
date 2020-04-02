@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Forecast: Decodable {
+struct Forecast: Codable {
     var status: String
     var contents: DetailInfo
     
-    struct DetailInfo: Decodable {
+    struct DetailInfo: Codable {
         var dataTime: String
         var informCause: String
         var informGrade: String
