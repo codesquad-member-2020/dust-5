@@ -32,10 +32,10 @@ public class ConnectionUtil {
     return result.toString();
   }
 
-  public static String getResponseFromOpenAPi(URL url, String apikey) throws IOException {
+  public static String getResponseFromOpenAPi(URL url, String apiKey) throws IOException {
     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
     urlConnection.setRequestMethod("GET");
-    urlConnection.setRequestProperty("Authorization", "KakaoAK " + apikey);
+    urlConnection.setRequestProperty("Authorization", "KakaoAK " + apiKey);
 
     BufferedReader bufferedReader =
         new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), StandardCharsets.UTF_8));

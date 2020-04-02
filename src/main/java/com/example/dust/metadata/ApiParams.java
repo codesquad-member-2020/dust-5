@@ -21,7 +21,6 @@ public class ApiParams {
   //측정소
   public static final String TM_X = "tmX=";
   public static final String TM_Y = "tmY=";
-  public static final String VER = "ver=1.0";
 
   //미세먼지
   public static final String STATION_NAME = "stationName=";

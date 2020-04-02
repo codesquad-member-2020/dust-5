@@ -21,7 +21,7 @@ public class CustomAdvice {
   public ApiResponse handleError(Exception e) {
     log.info("### handleError : {}", e.getMessage());
 
-    return new ApiResponse(ErrorMessages.ERROR, "공공API 문제");
+    return new ApiResponse(ErrorMessages.ERROR, ErrorMessages.PUBLIC_API_ERROR);
   }
 
   @ExceptionHandler(ConstraintViolationException.class)
