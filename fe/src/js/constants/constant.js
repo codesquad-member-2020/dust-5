@@ -1,6 +1,6 @@
 const ALERT_MESSAGE = {
     NOT_FOUND_LOCATION: '위치 정보를 조회할 수 없습니다.',
-    FIND_LOCATION_FAILURE: '데이터 조회에 실패 했습니다.',
+    FIND_LOCATION_FAILURE: '데이터 조회에 실패해 특정 위치 정보가 표시 됩니다.',
 }
 
 const LOCAL_STORAGE_KEY = {

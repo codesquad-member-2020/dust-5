@@ -30,8 +30,20 @@ class DustAppController {
         this.updateDustAppView();
     }
 
-    findLocationFailure() {
-        alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
+    async findLocationFailure() {
+        // alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
+        if (this.checkExistDustData()) return;
+        this.checkExistPrevDustData();
+        if (this.checkDustDataUpdateTime()) return;
+
+        const position = {
+            coords: {
+                longitude: '127.033353',
+                latitude: '37.491076',
+            }
+        }
+        await this.dustAppModel.getDustData(position);
+        this.updateDustAppView();
     }
 
     checkExistDustData() {
