@@ -3,7 +3,7 @@ package com.example.dust.exception;
 import com.example.dust.bean.ApiResponse;
 import com.example.dust.message.ErrorMessages;
 
-public class BaseException extends RuntimeException {
+public class BaseException extends Exception {
   private String errorMessage;
 
   public BaseException(String errorMessage) {

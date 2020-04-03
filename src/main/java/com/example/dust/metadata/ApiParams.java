@@ -1,7 +1,5 @@
 package com.example.dust.metadata;
 
-import java.time.LocalDate;
-
 public class ApiParams {
   public static final String FORECAST_SERVICE_KEY = "ServiceKey=" + ApiKey.FORECAST_KEY;
   public static final String STATION_SERVICE_KEY = "ServiceKey=" + ApiKey.STATION_SEARCH_KEY;
@@ -23,7 +21,6 @@ public class ApiParams {
   //측정소
   public static final String TM_X = "tmX=";
   public static final String TM_Y = "tmY=";
-  public static final String VER = "ver=1.0";
 
   //미세먼지
   public static final String STATION_NAME = "stationName=";
