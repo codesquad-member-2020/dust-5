@@ -16,7 +16,7 @@ class DustAppController {
     traceUserLocation() {
         if (navigator.geolocation) {
             navigator.geolocation
-                .getCurrentPosition(this.findLocationSuccess.bind(this), this.findLocationFailure, { enableHighAccuracy: true, maximumAge: 0, timeout: Infinity });
+                .getCurrentPosition(this.findLocationSuccess.bind(this), this.findLocationFailure.bind(this), { enableHighAccuracy: true, maximumAge: 0, timeout: Infinity });
         }
         else alert(ALERT_MESSAGE.NOT_FOUND_LOCATION);
     }
