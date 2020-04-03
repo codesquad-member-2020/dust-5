@@ -31,9 +31,7 @@ class ForecastViewController: UIViewController {
                 self.stringToImage()
                 self.setStringData()
             }
-            
         }
-        
     }
     
     func stringToImage()  {
@@ -41,7 +39,6 @@ class ForecastViewController: UIViewController {
         for i in 0..<forecast.contents.count {
             let imageUrls = forecast.contents[i].imageList
             imageUrls.forEach { imageString in
-                
                 do {
                     guard let imageURL = URL(string: imageString) else { return }
                     let data = try Data(contentsOf: imageURL)
@@ -69,7 +66,7 @@ class ForecastViewController: UIViewController {
     
     func setUpSlider() {
         playSlider.minimumValue = 0
-        playSlider.maximumValue = 1
+        playSlider.maximumValue = Float(forecastImages.count)
         playSlider.value = 0.0
     }
     
@@ -84,12 +81,6 @@ class ForecastViewController: UIViewController {
             PMImage.stopAnimating()
         }
     }
-    
-    
-    //전체 이미지 갯수로 slider의 value를 나눔
-    //각각의 이미지가 몫을 가짐
-    //슬라이더로 밸류값이 변경되면 그 밸류값에 해당하는 이미지가 표시
-    
-    
-    
 }
+
+

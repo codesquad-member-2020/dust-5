@@ -27,9 +27,8 @@ class Dust24NetworkManager {
         urlDataTask.request(url: urlWithQuery, methodType: .get) { result in
             switch result {
             case .success(let anyData):
-                handler(anyData as! MeasuredHistory)
+                handler(anyData as! MeasuredHistory)                
             case .failure(let error):
-                //추후 에러 핸들링 방법 추가하기
                 print(error.localizedDescription)
             }
         }
