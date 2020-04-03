@@ -55,7 +55,10 @@ class DustForecastView {
     }
 
     updateForecastImage(option) {
-        removeClass(this.dustForecastImageSet.children[option.prevIndex], COMMON_RULE.ACTIVE_KEY);
+        [...this.dustForecastImageSet.children].forEach((image, index) => {
+            if (image.classList.contains(COMMON_RULE.ACTIVE_KEY)) removeClass(this.dustForecastImageSet.children[index], COMMON_RULE.ACTIVE_KEY);
+        });
+        // removeClass(this.dustForecastImageSet.children[option.prevIndex], COMMON_RULE.ACTIVE_KEY);
         addClass(this.dustForecastImageSet.children[option.currIndex], COMMON_RULE.ACTIVE_KEY);
     }
 

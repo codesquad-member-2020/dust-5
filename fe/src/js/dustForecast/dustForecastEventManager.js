@@ -58,7 +58,7 @@ class DustForecastEventManager {
         if (option.currIndex === option.imagesLength) option.currIndex--;
         option.prevIndex = option.currIndex;
         option.currIndex = parseInt(toLeft / option.imageRangeWidth);
-        this.dustForecastView.updateForecastImage(option);
+        if (option.prevIndex !== option.currIndex) this.dustForecastView.updateForecastImage(option);
     }
 
     resetAnimation() {
