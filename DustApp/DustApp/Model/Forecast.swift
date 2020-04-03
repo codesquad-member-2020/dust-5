@@ -10,7 +10,7 @@ import Foundation
 
 struct Forecast: Codable {
     var status: String
-    var contents: DetailInfo
+    var contents: [DetailInfo]
     
     struct DetailInfo: Codable {
         var dataTime: String

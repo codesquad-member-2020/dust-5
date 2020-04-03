@@ -34,9 +34,9 @@ class TimelineTableView: UITableView, UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as! TimelineTableViewCell
         guard let cellContents = measuredHistory?.contents else { return cell }
         let cellData = cellContents.forecast[indexPath.row]
-        //측정 날짜시간 중 시간만 추출 필요
         cell.measuredTime = cellData.dataTime
         cell.measuredPlace = cellContents.station
+//        if let pm10Value = Double
         guard let pm10Value = Double(cellData.pm10Value) else { return cell }
         let percent = pm10Value / 200.0
         cell.setConstraint(percentage: CGFloat(percent))

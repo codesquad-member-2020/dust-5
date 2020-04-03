@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		301223C624335ADA00BB712C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C524335ADA00BB712C /* LocationManager.swift */; };
 		301223C824335F7800BB712C /* URLDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C724335F7800BB712C /* URLDataTask.swift */; };
-		301223CA243363A600BB712C /* EncodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223C9243363A600BB712C /* EncodeManager.swift */; };
 		301223CC243363D800BB712C /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223CB243363D800BB712C /* Coordinate.swift */; };
 		301223CE2433662E00BB712C /* Dust24NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223CD2433662E00BB712C /* Dust24NetworkManager.swift */; };
 		301223D02433761C00BB712C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301223CF2433761C00BB712C /* NetworkError.swift */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		301223C524335ADA00BB712C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		301223C724335F7800BB712C /* URLDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDataTask.swift; sourceTree = "<group>"; };
-		301223C9243363A600BB712C /* EncodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeManager.swift; sourceTree = "<group>"; };
 		301223CB243363D800BB712C /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		301223CD2433662E00BB712C /* Dust24NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dust24NetworkManager.swift; sourceTree = "<group>"; };
 		301223CF2433761C00BB712C /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 			children = (
 				301223C524335ADA00BB712C /* LocationManager.swift */,
 				301223C724335F7800BB712C /* URLDataTask.swift */,
-				301223C9243363A600BB712C /* EncodeManager.swift */,
 				301223CD2433662E00BB712C /* Dust24NetworkManager.swift */,
 				302B196C2435F6E20053F7CE /* ForecastNetworkManager.swift */,
 			);
@@ -276,7 +273,6 @@
 				305CBFDD2430841900C62E81 /* ForecastViewController.swift in Sources */,
 				302B196D2435F6E20053F7CE /* ForecastNetworkManager.swift in Sources */,
 				30B0AB522431C71900CE9727 /* DustState.swift in Sources */,
-				301223CA243363A600BB712C /* EncodeManager.swift in Sources */,
 				30B0AB5E2431CE8B00CE9727 /* DustGrade.swift in Sources */,
 				305CBFDB24306FAF00C62E81 /* DustViewController.swift in Sources */,
 				30B6F4C2243224700059B7F4 /* TimelineTableView.swift in Sources */,
