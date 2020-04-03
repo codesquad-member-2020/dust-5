@@ -38,8 +38,8 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-hR-Vsf">
-                                <rect key="frame" x="0.0" y="598" width="414" height="38"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-hR-Vsf">
+                                <rect key="frame" x="0.0" y="598" width="414" height="64"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -47,7 +47,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="USA-hN-Vr5">
-                                <rect key="frame" x="142" y="712" width="254" height="30"/>
+                                <rect key="frame" x="142" y="709" width="254" height="30"/>
                                 <color key="tintColor" red="0.4948360892905766" green="0.81244252175849097" blue="0.63493844144156175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="npl-Xf-e8z"/>
@@ -76,7 +76,7 @@
                             <constraint firstItem="dDc-el-e2x" firstAttribute="top" secondItem="ueI-6R-7B7" secondAttribute="top" constant="5" id="9dv-yw-FBy"/>
                             <constraint firstItem="HdG-zs-1w9" firstAttribute="trailing" secondItem="WJz-hR-Vsf" secondAttribute="trailing" id="B2u-Fi-14z"/>
                             <constraint firstItem="USA-hN-Vr5" firstAttribute="leading" secondItem="QSa-r2-iMc" secondAttribute="trailing" constant="57" id="Gr0-5x-bEm"/>
-                            <constraint firstItem="QSa-r2-iMc" firstAttribute="top" secondItem="WJz-hR-Vsf" secondAttribute="bottom" constant="70" id="Las-Ti-Lcd"/>
+                            <constraint firstItem="QSa-r2-iMc" firstAttribute="top" secondItem="WJz-hR-Vsf" secondAttribute="bottom" constant="41" id="Las-Ti-Lcd"/>
                             <constraint firstItem="QSa-r2-iMc" firstAttribute="centerY" secondItem="USA-hN-Vr5" secondAttribute="centerY" id="NGR-YY-OMM"/>
                             <constraint firstItem="HdG-zs-1w9" firstAttribute="trailing" secondItem="ueI-6R-7B7" secondAttribute="trailing" id="OQ8-Ey-flX"/>
                             <constraint firstItem="4eW-iM-lbq" firstAttribute="top" secondItem="HdG-zs-1w9" secondAttribute="bottom" constant="8" id="OYr-Zt-ZjZ"/>
@@ -84,7 +84,7 @@
                             <constraint firstItem="QSa-r2-iMc" firstAttribute="leading" secondItem="ueI-6R-7B7" secondAttribute="leading" constant="47" id="R8M-U0-UNh"/>
                             <constraint firstItem="dDc-el-e2x" firstAttribute="centerX" secondItem="sXC-eR-LIW" secondAttribute="centerX" id="aK7-35-ti0"/>
                             <constraint firstItem="HdG-zs-1w9" firstAttribute="leading" secondItem="4eW-iM-lbq" secondAttribute="leading" id="b1g-oZ-4NV"/>
-                            <constraint firstItem="USA-hN-Vr5" firstAttribute="top" secondItem="WJz-hR-Vsf" secondAttribute="bottom" constant="76" id="fFD-c3-BCI"/>
+                            <constraint firstItem="USA-hN-Vr5" firstAttribute="top" secondItem="WJz-hR-Vsf" secondAttribute="bottom" constant="50" id="fFD-c3-BCI"/>
                             <constraint firstItem="4eW-iM-lbq" firstAttribute="leading" secondItem="ueI-6R-7B7" secondAttribute="leading" id="gsc-5p-UWq"/>
                             <constraint firstItem="WJz-hR-Vsf" firstAttribute="leading" secondItem="ueI-6R-7B7" secondAttribute="leading" id="kIl-Gl-EKK"/>
                             <constraint firstItem="WJz-hR-Vsf" firstAttribute="top" secondItem="4eW-iM-lbq" secondAttribute="bottom" constant="8" id="ksO-uC-BS5"/>
