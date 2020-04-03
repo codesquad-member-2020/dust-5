@@ -20,7 +20,7 @@
 
 > Scrum
 
-[Wiki-Daily Scrum](https://github.com/codesquad-member-2020/dust-5/wiki/Daily-Scrum)
+[Wiki-Daily Scrum](https://github.com/codesquad-member-2020/dust-5/wiki)
 
 
 
@@ -28,11 +28,6 @@
 
 
 ### 프로젝트
-
-> 기획서
-
-[Service Plan Docs](https://docs.google.com/spreadsheets/d/1TymIOeVNU-PpaC1UUimeTzmj-AlIpl9B2_dCUD0S2-8/edit?usp=sharing)
-
 
 
 > 요구사항 분석
@@ -56,9 +51,6 @@
 
 > 배포 URL
 
-http://52.78.167.59:8080/forecast
-
-http://52.78.167.59:8080/forecast/dust-status
-
+http://ec2-52-78-167-59.ap-northeast-2.compute.amazonaws.com
 
 
