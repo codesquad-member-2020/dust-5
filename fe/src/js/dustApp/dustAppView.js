@@ -11,14 +11,9 @@ class DustAppView {
         this.dustTimelineGraph = null;
     }
 
-    init() {
-        this.render();
-        this.setViewElements();
-    }
-
     render() {
         getElement('.dust-contents-wrap').innerHTML +=
-            `<div class="dust-app-wrap" data-name="미세먼지" data-type="dust-app-content">
+            `<div class="dust-app-wrap active" data-name="미세먼지" data-type="dust-app-content">
                 <div class="dust-app-state-wrap">
                     <h2 class="dust-app-title">미세먼지 앱</h2>
                     <div class="dust-app-state-icon">🤔</div>
@@ -28,7 +23,7 @@ class DustAppView {
                 </div>
 
                 <div class="dust-app-timeline-graph-wrap">
-                    <ul class="dust-app-timeline-graph"></ul>
+                    <ul title="모바일웹으로 변경 후 새로고침 해주세요! f12 -> ctrl + shift + m (Chrome)" class="dust-app-timeline-graph"></ul>
                 </div>
             </div>`;
     }

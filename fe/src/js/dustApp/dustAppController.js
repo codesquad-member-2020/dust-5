@@ -9,7 +9,6 @@ class DustAppController {
 
     runDustApp() {
         this.dustAppModel.init();
-        this.dustAppView.init();
         this.dustAppEventManager.init();
         this.traceUserLocation();
     }
@@ -17,7 +16,7 @@ class DustAppController {
     traceUserLocation() {
         if (navigator.geolocation) {
             navigator.geolocation
-                .getCurrentPosition(this.findLocationSuccess.bind(this), this.findLocationFailure, { enableHighAccuracy: true, maximumAge: 0, timeout: Infinity });
+                .getCurrentPosition(this.findLocationSuccess.bind(this), this.findLocationFailure.bind(this), { enableHighAccuracy: true, maximumAge: 0, timeout: Infinity });
         }
         else alert(ALERT_MESSAGE.NOT_FOUND_LOCATION);
     }
@@ -27,14 +26,24 @@ class DustAppController {
         this.checkExistPrevDustData();
         if (this.checkDustDataUpdateTime()) return;
 
-        const stationInfoApiUrl = await this.dustAppModel.getStationInfoApiUrl(position);
-        const dustInfoApiUrl = await this.dustAppModel.getDustInfoApiUrl(stationInfoApiUrl);
-        await this.dustAppModel.getDustData(dustInfoApiUrl);
+        await this.dustAppModel.getDustData(position);
         this.updateDustAppView();
     }
 
-    findLocationFailure() {
-        alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
+    async findLocationFailure() {
+        // alert(ALERT_MESSAGE.FIND_LOCATION_FAILURE);
+        if (this.checkExistDustData()) return;
+        this.checkExistPrevDustData();
+        if (this.checkDustDataUpdateTime()) return;
+
+        const position = {
+            coords: {
+                longitude: '127.033353',
+                latitude: '37.491076',
+            }
+        }
+        await this.dustAppModel.getDustData(position);
+        this.updateDustAppView();
     }
 
     checkExistDustData() {
